@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexoIQ | Enterprise Data Engineering & AI Solutions</title>
-    <meta name="description" content="NexoIQ delivers enterprise-grade cloud data architecture, robust ETL/ELT pipelines, and LLMOps solutions for European businesses.">
+    <title>NexoIQ | Enterprise Data Engineering, Databricks & AI Solutions</title>
+    <meta name="description" content="NexoIQ levert hoogwaardige cloud data-architectuur, Databricks Lakehouse pipelines en professionele data engineering trainingen voor Europese bedrijven.">
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <!-- Google Fonts & Tailwind CSS -->
@@ -40,7 +40,7 @@
     <style>
         body { background-color: #08090c; color: #f3f4f6; overflow-x: hidden; }
         .canvas-bg { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; }
-        .glass-card { background: rgba(15, 18, 24, 0.75); backdrop-filter: blur(14px); border: 1px solid rgba(36, 42, 56, 0.85); }
+        .glass-card { background: rgba(15, 18, 24, 0.78); backdrop-filter: blur(14px); border: 1px solid rgba(36, 42, 56, 0.85); }
         .glass-card:hover { border-color: rgba(255, 122, 0, 0.45); box-shadow: 0 10px 35px 0 rgba(255, 122, 0, 0.12); }
         .text-gradient-orange { background: linear-gradient(135deg, #ffffff 25%, #ffaa00 70%, #ff7a00 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .orange-glow { box-shadow: 0 0 25px rgba(255, 122, 0, 0.35); }
@@ -48,36 +48,34 @@
 </head>
 <body class="font-sans antialiased selection:bg-brand-orange selection:text-black">
 
-    <!-- Three.js Animated Background -->
+    <!-- Three.js Animated Data Nodes -->
     <canvas id="three-canvas" class="canvas-bg"></canvas>
 
-    <!-- Navigation Header -->
-    <header class="sticky top-0 z-50 border-b border-brand-border/60 bg-brand-dark/85 backdrop-blur-md">
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 border-b border-brand-border/60 bg-brand-dark/90 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <!-- Brand Logo -->
             <a href="#" class="flex items-center gap-3">
-                <img src="logo.jpg" alt="NexoIQ" class="h-11 w-auto max-w-[170px] object-contain rounded-md">
+                <img src="logo.jpg" alt="NexoIQ" class="h-11 w-auto max-w-[160px] object-contain rounded-md">
                 <div class="hidden sm:flex flex-col">
                     <span class="font-extrabold text-2xl tracking-tight text-white leading-none">Nexo<span class="text-brand-orange">IQ</span></span>
-                    <span class="text-[9px] font-mono tracking-widest text-slate-400 uppercase mt-1">Data • Analytics • AI Solutions</span>
+                    <span class="text-[9px] font-mono tracking-widest text-slate-400 uppercase mt-1">Data • Databricks • AI Solutions</span>
                 </div>
             </a>
 
-            <!-- Navigation Links -->
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-                <a href="#services" class="hover:text-brand-orange transition-colors" data-i18n="navServices">Services</a>
+                <a href="#services" class="hover:text-brand-orange transition-colors" data-i18n="navServices">Diensten</a>
+                <a href="#academy" class="hover:text-brand-orange transition-colors" data-i18n="navAcademy">Training & Mentorship</a>
                 <a href="#calculator" class="hover:text-brand-orange transition-colors" data-i18n="navCalc">ROI Calculator</a>
-                <a href="#expertise" class="hover:text-brand-orange transition-colors" data-i18n="navTech">Tech Stack</a>
+                <a href="#compliance" class="hover:text-brand-orange transition-colors" data-i18n="navCompliance">Bedrijfsgegevens</a>
             </nav>
 
-            <!-- Language Toggle & CTA -->
             <div class="flex items-center gap-4">
-                <button id="langToggle" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-brand-border text-xs font-mono text-slate-300 hover:border-brand-orange transition-colors" aria-label="Toggle Language">
+                <button id="langToggle" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-brand-border text-xs font-mono text-slate-300 hover:border-brand-orange transition-colors" aria-label="Taal wisselen">
                     <i data-lucide="globe" class="w-3.5 h-3.5"></i>
-                    <span id="langText">NL</span>
+                    <span id="langText">EN</span>
                 </button>
-                <a href="mailto:ahmad@nexoiq.nl?subject=Advisory%20Inquiry%20-%20NexoIQ" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-brand-orange to-brand-amber text-black font-bold text-sm hover:brightness-110 orange-glow transition-all flex items-center gap-2">
-                    <span data-i18n="ctaButton">Consult Advisory</span>
+                <a href="mailto:ahmad@nexoiq.nl?subject=Aanvraag%20Data%20Consultancy" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-brand-orange to-brand-amber text-black font-bold text-sm hover:brightness-110 orange-glow transition-all flex items-center gap-2">
+                    <span data-i18n="ctaButton">Plan Adviesgesprek</span>
                     <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
             </div>
@@ -86,118 +84,142 @@
 
     <!-- Hero Section -->
     <section class="max-w-7xl mx-auto px-6 pt-24 pb-20 text-center relative">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-orange/30 bg-brand-surface/70 backdrop-blur-md mb-8 shadow-[0_0_15px_rgba(255,122,0,0.15)]">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-orange/30 bg-brand-surface/80 backdrop-blur-md mb-8 shadow-[0_0_15px_rgba(255,122,0,0.15)]">
             <span class="w-2 h-2 rounded-full bg-brand-orange animate-ping"></span>
-            <span class="text-xs font-mono text-slate-300" data-i18n="badgeText">Enterprise Data Advisory • Rotterdam, NL</span>
+            <span class="text-xs font-mono text-slate-300" data-i18n="badgeText">Data Engineering & Lakehouse Consultancy • Rotterdam, NL</span>
         </div>
         
-        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight max-w-4xl mx-auto leading-[1.1] mb-6">
-            <span data-i18n="heroTitle">Industrial-Grade</span><br/>
-            <span class="text-gradient-orange" data-i18n="heroSub">Data Pipelines & Cloud AI</span>
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight max-w-4xl mx-auto leading-[1.15] mb-6">
+            <span data-i18n="heroTitle">Industriële Schaal</span><br/>
+            <span class="text-gradient-orange" data-i18n="heroSub">Datapijplijnen & Databricks Lakehouse</span>
         </h1>
         
         <p class="max-w-2xl mx-auto text-lg text-slate-400 mb-10 leading-relaxed" data-i18n="heroDesc">
-            Architecting modern Lakehouses, robust ETL/ELT pipelines, and LLMOps infrastructure. Providing fractional principal engineering for European enterprises.
+            Architectuur van betrouwbare Databricks Lakehouses, geautomatiseerde ETL-verwerking en enterprise LLMOps. Daarnaast verzorgen wij hands-on trainingen voor interne datateams.
         </p>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="mailto:ahmad@nexoiq.nl?subject=Technical%20Briefing%20Inquiry" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-orange to-brand-amber text-black font-extrabold text-base hover:brightness-110 orange-glow transition-all">
-                <span data-i18n="heroCta1">Schedule Technical Briefing</span>
+            <a href="mailto:ahmad@nexoiq.nl?subject=Project%20Inquiry%20-%20NexoIQ" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-orange to-brand-amber text-black font-extrabold text-base hover:brightness-110 orange-glow transition-all">
+                <span data-i18n="heroCta1">Plan Technische Sessie</span>
             </a>
-            <a href="#calculator" class="w-full sm:w-auto px-8 py-4 rounded-xl border border-brand-border glass-card font-semibold text-slate-200 hover:border-brand-orange/60 transition-all">
-                <span data-i18n="heroCta2">Calculate Pipeline ROI</span>
+            <a href="#academy" class="w-full sm:w-auto px-8 py-4 rounded-xl border border-brand-border glass-card font-semibold text-slate-200 hover:border-brand-orange/60 transition-all">
+                <span data-i18n="heroCta2">Ontdek Data Trainingen</span>
             </a>
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Core Services -->
     <section id="services" class="max-w-7xl mx-auto px-6 py-20">
         <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4" data-i18n="servicesTitle">Enterprise Engineering Practice</h2>
-            <p class="text-slate-400 max-w-xl mx-auto" data-i18n="servicesDesc">Mission-critical data infrastructure designed for reliability, sub-second query performance, and strict AVG/GDPR compliance.</p>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4" data-i18n="servicesTitle">Gespecialiseerde Diensten</h2>
+            <p class="text-slate-400 max-w-xl mx-auto" data-i18n="servicesDesc">Van ruwe, versnipperde data naar een performante data-infrastructuur die uw rapportages en AI-modellen foutloos voedt.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Modern Lakehouse -->
+            <!-- Databricks Lakehouse -->
             <div class="glass-card rounded-2xl p-8 transition-all">
                 <div class="w-12 h-12 rounded-xl bg-brand-orange/15 border border-brand-orange/30 flex items-center justify-center text-brand-orange mb-6">
-                    <i data-lucide="layers" class="w-6 h-6"></i>
+                    <i data-lucide="database" class="w-6 h-6"></i>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-3" data-i18n="srv1Title">Modern Data Lakehouse</h3>
-                <p class="text-slate-400 text-sm leading-relaxed mb-6" data-i18n="srv1Desc">Production Delta Lake, Snowflake, and Azure Synapse implementations. Unifying batch & streaming workloads with zero duplicate ingestion.</p>
-                <div class="font-mono text-xs text-brand-orange font-semibold">Databricks • Delta Lake • Snowflake</div>
+                <h3 class="text-xl font-bold text-white mb-3" data-i18n="srv1Title">Databricks Lakehouse & Delta Lake</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6" data-i18n="srv1Desc">Productie-implementaties op Azure Databricks en AWS. Unificatie van batch & streaming verwerking met geavanceerde Delta Live Tables.</p>
+                <div class="font-mono text-xs text-brand-orange font-semibold">Databricks • Delta Lake • Apache Spark</div>
             </div>
 
-            <!-- ETL / ELT Pipelines -->
+            <!-- Data Cleansing & Modeling -->
             <div class="glass-card rounded-2xl p-8 transition-all">
                 <div class="w-12 h-12 rounded-xl bg-brand-orange/15 border border-brand-orange/30 flex items-center justify-center text-brand-orange mb-6">
-                    <i data-lucide="cpu" class="w-6 h-6"></i>
+                    <i data-lucide="filter" class="w-6 h-6"></i>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-3" data-i18n="srv2Title">High-Throughput ETL / ELT</h3>
-                <p class="text-slate-400 text-sm leading-relaxed mb-6" data-i18n="srv2Desc">Engineered with dbt Core, Apache Spark, and Airflow. Deterministic CI/CD data models with automated schema validation and data quality contracts.</p>
-                <div class="font-mono text-xs text-brand-orange font-semibold">dbt • Spark • Airflow • Kafka</div>
+                <h3 class="text-xl font-bold text-white mb-3" data-i18n="srv2Title">Data Opschoning & Modellering</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6" data-i18n="srv2Desc">Geautomatiseerde data cleaning pipelines en robuuste datamodellering. Zodat dashboards zoals Power BI direct kunnen rekenen op zuivere cijfers.</p>
+                <div class="font-mono text-xs text-brand-orange font-semibold">dbt • PySpark • Automated Quality Contracts</div>
             </div>
 
             <!-- LLMOps & GenAI -->
             <div class="glass-card rounded-2xl p-8 transition-all">
                 <div class="w-12 h-12 rounded-xl bg-brand-orange/15 border border-brand-orange/30 flex items-center justify-center text-brand-orange mb-6">
-                    <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    <i data-lucide="cpu" class="w-6 h-6"></i>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-3" data-i18n="srv3Title">Production LLMOps & RAG</h3>
-                <p class="text-slate-400 text-sm leading-relaxed mb-6" data-i18n="srv3Desc">Enterprise vector search pipelines, metadata chunking, and latency-optimized indexing. Preparing uncurated business assets for generative inference.</p>
-                <div class="font-mono text-xs text-brand-orange font-semibold">Vector DBs • Hybrid Search • Azure OpenAI</div>
+                <h3 class="text-xl font-bold text-white mb-3" data-i18n="srv3Title">AI Infrastructuur & LLMOps</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6" data-i18n="srv3Desc">Vector indexering, RAG data pipelines en Azure OpenAI integraties. Uw bedrijfsdata schaalbaar en veilig voorbereid op generatieve AI.</p>
+                <div class="font-mono text-xs text-brand-orange font-semibold">Vector DBs • Hybrid Search • Azure AI</div>
             </div>
         </div>
     </section>
 
-    <!-- Tech Stack Logos -->
-    <section id="expertise" class="max-w-7xl mx-auto px-6 py-12 border-y border-brand-border/40">
-        <div class="text-center text-xs font-mono tracking-widest text-slate-500 uppercase mb-6" data-i18n="stackTitle">Engineered With Enterprise Standards</div>
-        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-14 font-mono text-sm text-slate-400 font-semibold">
-            <span class="hover:text-brand-orange transition-colors">Microsoft Azure Fabric</span>
-            <span class="hover:text-brand-orange transition-colors">Databricks</span>
-            <span class="hover:text-brand-orange transition-colors">Snowflake</span>
-            <span class="hover:text-brand-orange transition-colors">Apache Spark</span>
-            <span class="hover:text-brand-orange transition-colors">dbt Core</span>
-            <span class="hover:text-brand-orange transition-colors">Apache Airflow</span>
-            <span class="hover:text-brand-orange transition-colors">Python / SQL</span>
+    <!-- Education & Training Section -->
+    <section id="academy" class="max-w-7xl mx-auto px-6 py-16">
+        <div class="glass-card rounded-3xl p-8 md:p-12 border border-brand-orange/30 relative overflow-hidden">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-orange/20 text-brand-orange font-mono text-xs font-semibold mb-4">
+                    <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                    <span data-i18n="acadBadge">Kennisoverdracht & Data Mentorship</span>
+                </div>
+                <h3 class="text-3xl font-bold text-white mb-4" data-i18n="acadTitle">Data Engineering Training voor Teams</h3>
+                <p class="text-slate-300 text-sm md:text-base leading-relaxed mb-6" data-i18n="acadDesc">
+                    Naast consultancy helpen we bedrijven om onafhankelijk te worden. Wij verzorgen praktijkgerichte trainingen en 1-op-1 coaching in Apache Spark, Databricks, geavanceerde SQL-optimalisatie en moderne data-architectuur.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs text-slate-300 mb-8">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="check-circle" class="w-4 h-4 text-brand-orange"></i>
+                        <span data-i18n="acadPt1">Databricks & PySpark Fundamentals</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="check-circle" class="w-4 h-4 text-brand-orange"></i>
+                        <span data-i18n="acadPt2">Data Quality & Pipeline Orchestration</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="check-circle" class="w-4 h-4 text-brand-orange"></i>
+                        <span data-i18n="acadPt3">Van Ruwe Data naar Analytics-Ready Tabellen</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="check-circle" class="w-4 h-4 text-brand-orange"></i>
+                        <span data-i18n="acadPt4">Praktijkgerichte Enterprise Use-cases</span>
+                    </div>
+                </div>
+                <a href="mailto:ahmad@nexoiq.nl?subject=Aanvraag%20Data%20Engineering%20Training" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-orange text-black font-bold text-sm hover:brightness-110 orange-glow transition-all">
+                    <span data-i18n="acadCta">Bespreek een Incompany Training</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Interactive ROI Calculator -->
-    <section id="calculator" class="max-w-4xl mx-auto px-6 py-24">
+    <!-- Interactive Calculator -->
+    <section id="calculator" class="max-w-4xl mx-auto px-6 py-20">
         <div class="glass-card rounded-3xl p-8 md:p-12 border border-brand-border/80">
             <div class="flex items-center gap-3 mb-6">
                 <i data-lucide="calculator" class="text-brand-orange w-6 h-6"></i>
-                <h3 class="text-2xl font-bold text-white" data-i18n="calcTitle">Pipeline Efficiency & Compute Estimator</h3>
+                <h3 class="text-2xl font-bold text-white" data-i18n="calcTitle">Pijplijn Efficiëntie & Cloud Compute Calculator</h3>
             </div>
-            <p class="text-slate-400 text-sm mb-8" data-i18n="calcSubtitle">Estimate monthly cloud compute savings and latency reduction achieved through Lakehouse optimization.</p>
+            <p class="text-slate-400 text-sm mb-8" data-i18n="calcSubtitle">Schat de potentiële query-versnelling en jaarlijkse compute-besparing in door Databricks Lakehouse optimalisatie.</p>
 
             <div class="space-y-6">
                 <div>
                     <div class="flex justify-between text-sm font-medium mb-2">
-                        <span class="text-slate-300" data-i18n="calcVolumeLabel">Monthly Ingestion Volume</span>
+                        <span class="text-slate-300" data-i18n="calcVolumeLabel">Maandelijks Data Volume</span>
                         <span id="volumeVal" class="text-brand-orange font-mono font-bold">2.5 TB</span>
                     </div>
                     <input id="volumeSlider" type="range" min="0.5" max="25" step="0.5" value="2.5" class="w-full h-2 bg-brand-border rounded-lg appearance-none cursor-pointer accent-[#ff7a00]">
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-2" data-i18n="calcCloudLabel">Primary Cloud Stack</label>
+                    <label class="block text-sm font-medium text-slate-300 mb-2" data-i18n="calcCloudLabel">Primaire Cloud Omgeving</label>
                     <select id="cloudSelect" class="w-full bg-brand-surface border border-brand-border rounded-xl px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-brand-orange">
                         <option value="azure">Microsoft Azure (Fabric / Synapse / ADLS)</option>
-                        <option value="aws">Amazon Web Services (Redshift / EMR / S3)</option>
+                        <option value="aws">Amazon Web Services (Databricks / S3 / EMR)</option>
                         <option value="gcp">Google Cloud Platform (BigQuery)</option>
                     </select>
                 </div>
 
                 <div class="pt-6 border-t border-brand-border/60 grid grid-cols-1 sm:grid-cols-2 gap-4 text-center">
                     <div class="p-4 rounded-xl bg-brand-surface/90 border border-brand-border">
-                        <div class="text-xs font-mono text-slate-400 uppercase mb-1" data-i18n="calcMetric1">Est. Query Acceleration</div>
-                        <div id="accelMetric" class="text-2xl font-extrabold text-brand-orange font-mono">4.2x Faster</div>
+                        <div class="text-xs font-mono text-slate-400 uppercase mb-1" data-i18n="calcMetric1">Verwachte Query Versnelling</div>
+                        <div id="accelMetric" class="text-2xl font-extrabold text-brand-orange font-mono">4.2x Sneller</div>
                     </div>
                     <div class="p-4 rounded-xl bg-brand-surface/90 border border-brand-border">
-                        <div class="text-xs font-mono text-slate-400 uppercase mb-1" data-i18n="calcMetric2">Annual Compute Optimization</div>
+                        <div class="text-xs font-mono text-slate-400 uppercase mb-1" data-i18n="calcMetric2">Geschatte Jaarlijkse Besparing</div>
                         <div id="costMetric" class="text-2xl font-extrabold text-amber-400 font-mono">€ 14,200</div>
                     </div>
                 </div>
@@ -205,23 +227,52 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-brand-border/60 bg-brand-dark/95 py-12 text-sm text-slate-400">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="flex items-center gap-3">
-                <span class="font-extrabold text-xl text-white">Nexo<span class="text-brand-orange">IQ</span></span>
-                <span class="text-slate-600">|</span>
-                <span class="font-mono text-xs">Eenmanszaak • KvK Rotterdam Registered</span>
-            </div>
-            
-            <div class="flex items-center gap-6">
-                <a href="mailto:ahmad@nexoiq.nl" class="hover:text-brand-orange transition-colors font-mono">ahmad@nexoiq.nl</a>
-                <span class="text-slate-600">•</span>
-                <span>South Holland, Netherlands</span>
+    <!-- Company Details & Compliance Section -->
+    <section id="compliance" class="max-w-7xl mx-auto px-6 py-12 border-t border-brand-border/40">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+            <div class="p-6 rounded-2xl glass-card">
+                <div class="font-bold text-white mb-2" data-i18n="comp1Title">Wettelijke Registratie</div>
+                <div class="text-slate-400 font-mono text-xs space-y-1">
+                    <div>Handelsnaam: <strong class="text-slate-200">NexoIQ</strong></div>
+                    <div>Rechtsvorm: <strong class="text-slate-200">Eenmanszaak</strong></div>
+                    <div>KVK-nummer: <strong class="text-brand-orange">42175764</strong> <!-- ضع رقمك الفعلي المكون من 8 أرقام هنا --></div>
+                    <div>Regio: <strong class="text-slate-200">Rotterdam, Zuid-Holland</strong></div>
+                </div>
             </div>
 
-            <div class="text-xs text-slate-500 font-mono">
-                © <span id="year">2026</span> NexoIQ. All rights reserved.
+            <div class="p-6 rounded-2xl glass-card">
+                <div class="font-bold text-white mb-2" data-i18n="comp2Title">Activiteiten & SBI-Code</div>
+                <div class="text-slate-400 font-mono text-xs space-y-1">
+                    <div>SBI 63100: Gegevensverwerking & infrastructuur</div>
+                    <div>SBI 6202: IT-advies & data architectuur</div>
+                    <div>BTW-id: <span class="text-slate-300">Op factuur vermeld</span></div>
+                    <div>AVG / GDPR: <span class="text-emerald-400">100% Conform</span></div>
+                </div>
+            </div>
+
+            <div class="p-6 rounded-2xl glass-card">
+                <div class="font-bold text-white mb-2" data-i18n="comp3Title">Contact & Vestiging</div>
+                <div class="text-slate-400 font-mono text-xs space-y-1">
+                    <div>E-mail: <a href="mailto:ahmad@nexoiq.nl" class="text-brand-orange hover:underline">ahmad@nexoiq.nl</a></div>
+                    <div>Website: <strong class="text-slate-200">nexoiq.nl</strong></div>
+                    <div>Locatie: <strong class="text-slate-200">Zuid-Holland, Nederland</strong></div>
+                    <div>Werkwijze: <strong class="text-slate-200">Hybride / On-site / Remote</strong></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-brand-border/60 bg-brand-dark/95 py-10 text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <span class="font-extrabold text-base text-white">Nexo<span class="text-brand-orange">IQ</span></span>
+                <span class="text-slate-600">|</span>
+                <span class="font-mono">Ingeschreven in het Handelsregister KVK Rotterdam</span>
+            </div>
+            
+            <div class="text-slate-500 font-mono">
+                © <span id="year">2026</span> NexoIQ. Alle rechten voorbehouden.
             </div>
         </div>
     </footer>
@@ -231,7 +282,7 @@
         lucide.createIcons();
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // 3D Canvas
+        // 3D Visualizer
         const canvas = document.getElementById('three-canvas');
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -286,7 +337,7 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
 
-        // Calculator
+        // ROI Calculator Logic
         const slider = document.getElementById('volumeSlider');
         const volumeVal = document.getElementById('volumeVal');
         const costMetric = document.getElementById('costMetric');
@@ -297,58 +348,69 @@
             volumeVal.textContent = v.toFixed(1) + ' TB';
             const savings = Math.round(v * 4800 + 2200);
             costMetric.textContent = '€ ' + savings.toLocaleString();
-            accelMetric.textContent = (2.5 + (v * 0.35)).toFixed(1) + 'x Faster';
+            accelMetric.textContent = (2.5 + (v * 0.35)).toFixed(1) + (curLang === 'NL' ? 'x Sneller' : 'x Faster');
         }
         slider.addEventListener('input', updateCalc);
 
-        // Language Toggle (EN / NL)
-        let curLang = 'EN';
+        // Language Switcher (Default: NL -> EN)
+        let curLang = 'NL';
         const langToggle = document.getElementById('langToggle');
         const langText = document.getElementById('langText');
         const i18nData = {
+            NL: {
+                navServices: 'Diensten', navAcademy: 'Training & Mentorship', navCalc: 'ROI Calculator', navCompliance: 'Bedrijfsgegevens',
+                ctaButton: 'Plan Adviesgesprek', badgeText: 'Data Engineering & Lakehouse Consultancy • Rotterdam, NL',
+                heroTitle: 'Industriële Schaal', heroSub: 'Datapijplijnen & Databricks Lakehouse',
+                heroDesc: 'Architectuur van betrouwbare Databricks Lakehouses, geautomatiseerde ETL-verwerking en enterprise LLMOps. Daarnaast verzorgen wij hands-on trainingen voor interne datateams.',
+                heroCta1: 'Plan Technische Sessie', heroCta2: 'Ontdek Data Trainingen',
+                servicesTitle: 'Gespecialiseerde Diensten',
+                servicesDesc: 'Van ruwe, versnipperde data naar een performante data-infrastructuur die uw rapportages en AI-modellen foutloos voedt.',
+                srv1Title: 'Databricks Lakehouse & Delta Lake', srv1Desc: 'Productie-implementaties op Azure Databricks en AWS. Unificatie van batch & streaming verwerking met geavanceerde Delta Live Tables.',
+                srv2Title: 'Data Opschoning & Modellering', srv2Desc: 'Geautomatiseerde data cleaning pipelines en robuuste datamodellering. Zodat dashboards zoals Power BI direct kunnen rekenen op zuivere cijfers.',
+                srv3Title: 'AI Infrastructuur & LLMOps', srv3Desc: 'Vector indexering, RAG data pipelines en Azure OpenAI integraties. Uw bedrijfsdata schaalbaar en veilig voorbereid op generatieve AI.',
+                acadBadge: 'Kennisoverdracht & Data Mentorship', acadTitle: 'Data Engineering Training voor Teams',
+                acadDesc: 'Naast consultancy helpen we bedrijven om onafhankelijk te worden. Wij verzorgen praktijkgerichte trainingen en 1-op-1 coaching in Apache Spark, Databricks, geavanceerde SQL-optimalisatie en moderne data-architectuur.',
+                acadPt1: 'Databricks & PySpark Fundamentals', acadPt2: 'Data Quality & Pipeline Orchestration',
+                acadPt3: 'Van Ruwe Data naar Analytics-Ready Tabellen', acadPt4: 'Praktijkgerichte Enterprise Use-cases',
+                acadCta: 'Bespreek een Incompany Training',
+                calcTitle: 'Pijplijn Efficiëntie & Cloud Compute Calculator',
+                calcSubtitle: 'Schat de potentiële query-versnelling en jaarlijkse compute-besparing in door Databricks Lakehouse optimalisatie.',
+                calcVolumeLabel: 'Maandelijks Data Volume', calcCloudLabel: 'Primaire Cloud Omgeving',
+                calcMetric1: 'Verwachte Query Versnelling', calcMetric2: 'Geschatte Jaarlijkse Besparing',
+                comp1Title: 'Wettelijke Registratie', comp2Title: 'Activiteiten & SBI-Code', comp3Title: 'Contact & Vestiging'
+            },
             EN: {
-                navServices: 'Services', navCalc: 'ROI Calculator', navTech: 'Tech Stack',
-                ctaButton: 'Consult Advisory', badgeText: 'Enterprise Data Advisory • Rotterdam, NL',
-                heroTitle: 'Industrial-Grade', heroSub: 'Data Pipelines & Cloud AI',
-                heroDesc: 'Architecting modern Lakehouses, robust ETL/ELT pipelines, and LLMOps infrastructure. Providing fractional principal engineering for European enterprises.',
-                heroCta1: 'Schedule Technical Briefing', heroCta2: 'Calculate Pipeline ROI',
+                navServices: 'Services', navAcademy: 'Training & Mentorship', navCalc: 'ROI Calculator', navCompliance: 'Corporate Info',
+                ctaButton: 'Consult Advisory', badgeText: 'Data Engineering & Lakehouse Advisory • Rotterdam, NL',
+                heroTitle: 'Industrial-Grade', heroSub: 'Data Pipelines & Databricks Lakehouse',
+                heroDesc: 'Architecting modern Databricks Lakehouses, deterministic ETL pipelines, and LLMOps infrastructure. Providing enterprise engineering & technical mentorship.',
+                heroCta1: 'Schedule Technical Briefing', heroCta2: 'Explore Training Programs',
                 servicesTitle: 'Enterprise Engineering Practice',
-                servicesDesc: 'Mission-critical data infrastructure designed for reliability, sub-second query performance, and strict AVG/GDPR compliance.',
-                srv1Title: 'Modern Data Lakehouse', srv1Desc: 'Production Delta Lake, Snowflake, and Azure Synapse implementations. Unifying batch & streaming workloads with zero duplicate ingestion.',
-                srv2Title: 'High-Throughput ETL / ELT', srv2Desc: 'Engineered with dbt Core, Apache Spark, and Airflow. Deterministic CI/CD data models with automated schema validation and data quality contracts.',
-                srv3Title: 'Production LLMOps & RAG', srv3Desc: 'Enterprise vector search pipelines, metadata chunking, and latency-optimized indexing. Preparing uncurated business assets for generative inference.',
-                stackTitle: 'Engineered With Enterprise Standards',
+                servicesDesc: 'Transforming uncurated raw datasets into ultra-reliable, analytics-ready pipelines that power reporting and AI without bottlenecks.',
+                srv1Title: 'Databricks Lakehouse & Delta Lake', srv1Desc: 'Production Delta Lake and Azure Databricks implementations. Unifying batch & streaming workloads with zero ingestion duplicate overhead.',
+                srv2Title: 'Data Cleansing & Modeling', srv2Desc: 'Automated data cleansing pipelines and robust modeling. Ensuring downstream tools like Power BI run on high-integrity tables.',
+                srv3Title: 'AI Infrastructure & LLMOps', srv3Desc: 'Vector search pipelines, metadata chunking, and Azure OpenAI integration. Preparing corporate data assets for production GenAI.',
+                acadBadge: 'Knowledge Transfer & Data Mentorship', acadTitle: 'Corporate Data Engineering Academy',
+                acadDesc: 'Empowering internal teams to operate and scale their own infrastructure. Hands-on workshops in Apache Spark, Databricks, and advanced data modeling.',
+                acadPt1: 'Databricks & PySpark Fundamentals', acadPt2: 'Data Quality & Pipeline Orchestration',
+                acadPt3: 'From Raw Data to Analytics-Ready Models', acadPt4: 'Production Enterprise Use-Cases',
+                acadCta: 'Request Incompany Training',
                 calcTitle: 'Pipeline Efficiency & Compute Estimator',
                 calcSubtitle: 'Estimate monthly cloud compute savings and latency reduction achieved through Lakehouse optimization.',
                 calcVolumeLabel: 'Monthly Ingestion Volume', calcCloudLabel: 'Primary Cloud Stack',
-                calcMetric1: 'Est. Query Acceleration', calcMetric2: 'Annual Compute Optimization'
-            },
-            NL: {
-                navServices: 'Diensten', navCalc: 'ROI Calculator', navTech: 'Tech Stack',
-                ctaButton: 'Adviesgesprek', badgeText: 'Enterprise Data Consultancy • Rotterdam, NL',
-                heroTitle: 'Industriële Kwaliteit', heroSub: 'Datapijplijnen & Cloud AI',
-                heroDesc: 'Architectuur van moderne Lakehouses, robuuste ETL/ELT-pijplijnen en LLMOps-infrastructuur. Fractional engineering voor Europese ondernemingen.',
-                heroCta1: 'Plan Technische Sessie', heroCta2: 'Bereken Pijplijn ROI',
-                servicesTitle: 'Enterprise Engineering Praktijk',
-                servicesDesc: 'Kritieke data-infrastructuur ontworpen voor betrouwbaarheid, sub-seconde query-prestaties en AVG-naleving.',
-                srv1Title: 'Modern Data Lakehouse', srv1Desc: 'Productie Delta Lake, Snowflake en Azure Synapse implementaties. Batch & streaming verenigd zonder dubbele opslag.',
-                srv2Title: 'High-Throughput ETL / ELT', srv2Desc: 'Gebouwd met dbt Core, Apache Spark en Airflow. Deterministische CI/CD datamodellen met geautomatiseerde validatie.',
-                srv3Title: 'Productie LLMOps & RAG', srv3Desc: 'Vector search pipelines, metadata chunking en geoptimaliseerde indexering voor bedrijfsbrede AI-inferentie.',
-                stackTitle: 'Gebouwd Volgens Industriële Standaarden',
-                calcTitle: 'Pijplijn Efficiëntie & Kosten Calculator',
-                calcSubtitle: 'Schat de jaarlijkse besparing op cloud compute en latentiereductie in.',
-                calcVolumeLabel: 'Maandelijks Data Volume', calcCloudLabel: 'Primaire Cloud Stack',
-                calcMetric1: 'Verwachte Versnelling', calcMetric2: 'Jaarlijkse Besparing'
+                calcMetric1: 'Est. Query Acceleration', calcMetric2: 'Annual Compute Optimization',
+                comp1Title: 'Legal Registration', comp2Title: 'Activities & SBI Codes', comp3Title: 'Contact & Location'
             }
         };
 
         langToggle.addEventListener('click', () => {
-            curLang = (curLang === 'EN') ? 'NL' : 'EN';
-            langText.textContent = (curLang === 'EN') ? 'NL' : 'EN';
+            curLang = (curLang === 'NL') ? 'EN' : 'NL';
+            langText.textContent = (curLang === 'NL') ? 'EN' : 'NL';
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (i18nData[curLang][key]) el.textContent = i18nData[curLang][key];
             });
+            updateCalc();
         });
     </script>
 </body>
