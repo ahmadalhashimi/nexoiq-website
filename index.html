@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexoIQ | Enterprise Data Engineering & AI Solutions</title>
     <meta name="description" content="NexoIQ delivers enterprise-grade cloud data architecture, robust ETL/ELT pipelines, and LLMOps solutions for European businesses.">
-    <!-- Google Fonts & Lucide Icons -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <!-- Google Fonts & Tailwind CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -46,34 +48,35 @@
 </head>
 <body class="font-sans antialiased selection:bg-brand-orange selection:text-black">
 
+    <!-- Three.js Animated Background -->
     <canvas id="three-canvas" class="canvas-bg"></canvas>
 
-    <!-- Header / Navbar -->
+    <!-- Navigation Header -->
     <header class="sticky top-0 z-50 border-b border-brand-border/60 bg-brand-dark/85 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <!-- Logo Symbol (Nexo Ribbon Icon Style) -->
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#e65100] via-[#ff7a00] to-[#ffaa00] flex items-center justify-center font-extrabold text-xl text-black shadow-[0_0_20px_rgba(255,122,0,0.5)]">
-                    N
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3">
+                <img src="logo.jpg" alt="NexoIQ" class="h-11 w-auto max-w-[170px] object-contain rounded-md">
+                <div class="hidden sm:flex flex-col">
+                    <span class="font-extrabold text-2xl tracking-tight text-white leading-none">Nexo<span class="text-brand-orange">IQ</span></span>
+                    <span class="text-[9px] font-mono tracking-widest text-slate-400 uppercase mt-1">Data • Analytics • AI Solutions</span>
                 </div>
-                <div class="flex flex-col">
-                    <span class="font-extrabold text-2xl tracking-tight text-white">Nexo<span class="text-brand-orange">IQ</span></span>
-                    <span class="text-[9.5px] font-mono tracking-widest text-slate-400 uppercase -mt-1">Data • Analytics • AI Solutions</span>
-                </div>
-            </div>
+            </a>
 
+            <!-- Navigation Links -->
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
                 <a href="#services" class="hover:text-brand-orange transition-colors" data-i18n="navServices">Services</a>
                 <a href="#calculator" class="hover:text-brand-orange transition-colors" data-i18n="navCalc">ROI Calculator</a>
-                <a href="#architecture" class="hover:text-brand-orange transition-colors" data-i18n="navArch">Architecture</a>
+                <a href="#expertise" class="hover:text-brand-orange transition-colors" data-i18n="navTech">Tech Stack</a>
             </nav>
 
+            <!-- Language Toggle & CTA -->
             <div class="flex items-center gap-4">
-                <button id="langToggle" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-brand-border text-xs font-mono text-slate-300 hover:border-brand-orange transition-colors">
+                <button id="langToggle" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-brand-border text-xs font-mono text-slate-300 hover:border-brand-orange transition-colors" aria-label="Toggle Language">
                     <i data-lucide="globe" class="w-3.5 h-3.5"></i>
                     <span id="langText">NL</span>
                 </button>
-                <a href="mailto:ahmad@nexoiq.nl" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-brand-orange to-brand-amber text-black font-bold text-sm hover:brightness-110 orange-glow transition-all flex items-center gap-2">
+                <a href="mailto:ahmad@nexoiq.nl?subject=Advisory%20Inquiry%20-%20NexoIQ" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-brand-orange to-brand-amber text-black font-bold text-sm hover:brightness-110 orange-glow transition-all flex items-center gap-2">
                     <span data-i18n="ctaButton">Consult Advisory</span>
                     <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
@@ -98,7 +101,7 @@
         </p>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="mailto:ahmad@nexoiq.nl?subject=Project%20Inquiry%20-%20NexoIQ" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-orange to-brand-amber text-black font-extrabold text-base hover:brightness-110 orange-glow transition-all">
+            <a href="mailto:ahmad@nexoiq.nl?subject=Technical%20Briefing%20Inquiry" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-orange to-brand-amber text-black font-extrabold text-base hover:brightness-110 orange-glow transition-all">
                 <span data-i18n="heroCta1">Schedule Technical Briefing</span>
             </a>
             <a href="#calculator" class="w-full sm:w-auto px-8 py-4 rounded-xl border border-brand-border glass-card font-semibold text-slate-200 hover:border-brand-orange/60 transition-all">
@@ -107,7 +110,7 @@
         </div>
     </section>
 
-    <!-- Core Services -->
+    <!-- Services Section -->
     <section id="services" class="max-w-7xl mx-auto px-6 py-20">
         <div class="text-center mb-16">
             <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4" data-i18n="servicesTitle">Enterprise Engineering Practice</h2>
@@ -115,6 +118,7 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Modern Lakehouse -->
             <div class="glass-card rounded-2xl p-8 transition-all">
                 <div class="w-12 h-12 rounded-xl bg-brand-orange/15 border border-brand-orange/30 flex items-center justify-center text-brand-orange mb-6">
                     <i data-lucide="layers" class="w-6 h-6"></i>
@@ -124,6 +128,7 @@
                 <div class="font-mono text-xs text-brand-orange font-semibold">Databricks • Delta Lake • Snowflake</div>
             </div>
 
+            <!-- ETL / ELT Pipelines -->
             <div class="glass-card rounded-2xl p-8 transition-all">
                 <div class="w-12 h-12 rounded-xl bg-brand-orange/15 border border-brand-orange/30 flex items-center justify-center text-brand-orange mb-6">
                     <i data-lucide="cpu" class="w-6 h-6"></i>
@@ -133,6 +138,7 @@
                 <div class="font-mono text-xs text-brand-orange font-semibold">dbt • Spark • Airflow • Kafka</div>
             </div>
 
+            <!-- LLMOps & GenAI -->
             <div class="glass-card rounded-2xl p-8 transition-all">
                 <div class="w-12 h-12 rounded-xl bg-brand-orange/15 border border-brand-orange/30 flex items-center justify-center text-brand-orange mb-6">
                     <i data-lucide="sparkles" class="w-6 h-6"></i>
@@ -144,8 +150,22 @@
         </div>
     </section>
 
+    <!-- Tech Stack Logos -->
+    <section id="expertise" class="max-w-7xl mx-auto px-6 py-12 border-y border-brand-border/40">
+        <div class="text-center text-xs font-mono tracking-widest text-slate-500 uppercase mb-6" data-i18n="stackTitle">Engineered With Enterprise Standards</div>
+        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-14 font-mono text-sm text-slate-400 font-semibold">
+            <span class="hover:text-brand-orange transition-colors">Microsoft Azure Fabric</span>
+            <span class="hover:text-brand-orange transition-colors">Databricks</span>
+            <span class="hover:text-brand-orange transition-colors">Snowflake</span>
+            <span class="hover:text-brand-orange transition-colors">Apache Spark</span>
+            <span class="hover:text-brand-orange transition-colors">dbt Core</span>
+            <span class="hover:text-brand-orange transition-colors">Apache Airflow</span>
+            <span class="hover:text-brand-orange transition-colors">Python / SQL</span>
+        </div>
+    </section>
+
     <!-- Interactive ROI Calculator -->
-    <section id="calculator" class="max-w-4xl mx-auto px-6 py-20">
+    <section id="calculator" class="max-w-4xl mx-auto px-6 py-24">
         <div class="glass-card rounded-3xl p-8 md:p-12 border border-brand-border/80">
             <div class="flex items-center gap-3 mb-6">
                 <i data-lucide="calculator" class="text-brand-orange w-6 h-6"></i>
@@ -206,11 +226,12 @@
         </div>
     </footer>
 
-    <!-- Three.js Pipeline Simulation (Warm Orange Nodes) -->
+    <!-- Three.js Visualizer & Interactivity -->
     <script>
         lucide.createIcons();
         document.getElementById('year').textContent = new Date().getFullYear();
 
+        // 3D Canvas
         const canvas = document.getElementById('three-canvas');
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -236,7 +257,6 @@
         }
 
         geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-        // Warm Orange Particle Color (#ff7a00)
         const material = new THREE.PointsMaterial({ color: 0xff7a00, size: 0.9, transparent: true, opacity: 0.85 });
         const particles = new THREE.Points(geometry, material);
         scene.add(particles);
@@ -266,7 +286,7 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
 
-        // Calculator Logic
+        // Calculator
         const slider = document.getElementById('volumeSlider');
         const volumeVal = document.getElementById('volumeVal');
         const costMetric = document.getElementById('costMetric');
@@ -287,7 +307,7 @@
         const langText = document.getElementById('langText');
         const i18nData = {
             EN: {
-                navServices: 'Services', navCalc: 'ROI Calculator', navArch: 'Architecture',
+                navServices: 'Services', navCalc: 'ROI Calculator', navTech: 'Tech Stack',
                 ctaButton: 'Consult Advisory', badgeText: 'Enterprise Data Advisory • Rotterdam, NL',
                 heroTitle: 'Industrial-Grade', heroSub: 'Data Pipelines & Cloud AI',
                 heroDesc: 'Architecting modern Lakehouses, robust ETL/ELT pipelines, and LLMOps infrastructure. Providing fractional principal engineering for European enterprises.',
@@ -297,13 +317,14 @@
                 srv1Title: 'Modern Data Lakehouse', srv1Desc: 'Production Delta Lake, Snowflake, and Azure Synapse implementations. Unifying batch & streaming workloads with zero duplicate ingestion.',
                 srv2Title: 'High-Throughput ETL / ELT', srv2Desc: 'Engineered with dbt Core, Apache Spark, and Airflow. Deterministic CI/CD data models with automated schema validation and data quality contracts.',
                 srv3Title: 'Production LLMOps & RAG', srv3Desc: 'Enterprise vector search pipelines, metadata chunking, and latency-optimized indexing. Preparing uncurated business assets for generative inference.',
+                stackTitle: 'Engineered With Enterprise Standards',
                 calcTitle: 'Pipeline Efficiency & Compute Estimator',
                 calcSubtitle: 'Estimate monthly cloud compute savings and latency reduction achieved through Lakehouse optimization.',
                 calcVolumeLabel: 'Monthly Ingestion Volume', calcCloudLabel: 'Primary Cloud Stack',
                 calcMetric1: 'Est. Query Acceleration', calcMetric2: 'Annual Compute Optimization'
             },
             NL: {
-                navServices: 'Diensten', navCalc: 'ROI Calculator', navArch: 'Architectuur',
+                navServices: 'Diensten', navCalc: 'ROI Calculator', navTech: 'Tech Stack',
                 ctaButton: 'Adviesgesprek', badgeText: 'Enterprise Data Consultancy • Rotterdam, NL',
                 heroTitle: 'Industriële Kwaliteit', heroSub: 'Datapijplijnen & Cloud AI',
                 heroDesc: 'Architectuur van moderne Lakehouses, robuuste ETL/ELT-pijplijnen en LLMOps-infrastructuur. Fractional engineering voor Europese ondernemingen.',
@@ -313,6 +334,7 @@
                 srv1Title: 'Modern Data Lakehouse', srv1Desc: 'Productie Delta Lake, Snowflake en Azure Synapse implementaties. Batch & streaming verenigd zonder dubbele opslag.',
                 srv2Title: 'High-Throughput ETL / ELT', srv2Desc: 'Gebouwd met dbt Core, Apache Spark en Airflow. Deterministische CI/CD datamodellen met geautomatiseerde validatie.',
                 srv3Title: 'Productie LLMOps & RAG', srv3Desc: 'Vector search pipelines, metadata chunking en geoptimaliseerde indexering voor bedrijfsbrede AI-inferentie.',
+                stackTitle: 'Gebouwd Volgens Industriële Standaarden',
                 calcTitle: 'Pijplijn Efficiëntie & Kosten Calculator',
                 calcSubtitle: 'Schat de jaarlijkse besparing op cloud compute en latentiereductie in.',
                 calcVolumeLabel: 'Maandelijks Data Volume', calcCloudLabel: 'Primaire Cloud Stack',
