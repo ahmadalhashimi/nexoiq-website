@@ -1,0 +1,17 @@
+/* Header, navigation and language switcher. */
+.lang-btn { color: #cbd5e1; }
+.lang-btn:hover { color: #fff; }
+.lang-btn[aria-current="true"] { background: #ff7a00; color: #08090c; }
+.lang-btn[lang="ar"] { font-family: "IBM Plex Sans Arabic", sans-serif; padding-top: .2rem; padding-bottom: .2rem; }
+
+.nav-link { position: relative; }
+.nav-link::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px;
+  background: #ff7a00; transform: scaleX(0); transition: transform .25s ease;
+}
+.nav-link:hover::after { transform: scaleX(.5); }
+.nav-link.active { color: #fff; }
+.nav-link.active::after { transform: scaleX(1); }
+
+/* Solid header once the page is scrolled or the mobile menu is open. */
+[data-header].is-solid { background: rgba(8,9,12,.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,.05); }
