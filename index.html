@@ -1,417 +1,926 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en" dir="ltr" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexoIQ | Enterprise Data Engineering, Databricks & AI Solutions</title>
-    <meta name="description" content="NexoIQ levert hoogwaardige cloud data-architectuur, Databricks Lakehouse pipelines en professionele data engineering trainingen voor Europese bedrijven.">
-    <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="logo.jpg">
-    <!-- Google Fonts & Tailwind CSS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            dark: '#08090c',
-                            surface: '#0f1218',
-                            surfaceHover: '#161a23',
-                            border: '#242a38',
-                            orange: '#ff7a00',
-                            amber: '#ffaa00',
-                            glow: 'rgba(255, 122, 0, 0.22)'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        mono: ['"JetBrains Mono"', 'monospace']
-                    }
-                }
-            }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NexoIQ — Odoo ERP, CRM &amp; Inventory Consultancy · Power BI &amp; Data Engineering | Rotterdam</title>
+  <meta name="description" content="NexoIQ helps companies implement and extend Odoo: CRM, sales, purchasing, inventory and warehouses, custom modules and team training — backed by 8+ years of data engineering, Power BI and Databricks. Rotterdam, Netherlands.">
+  <meta name="author" content="Ahmad Alhashimi">
+  <meta name="keywords" content="Odoo consultant, Odoo implementatie, Odoo modules, Odoo CRM, Odoo voorraad, ERP consultant Rotterdam, Odoo.sh, Power BI, Databricks, data engineering, Odoo Arabic">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#08090c">
+  <link rel="canonical" href="https://nexoiq.nl/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NexoIQ">
+  <meta property="og:title" content="NexoIQ — Odoo ERP, CRM & Inventory · Power BI & Data Engineering">
+  <meta property="og:description" content="Odoo implementation, custom modules, CRM and inventory — plus Power BI and Databricks. Rotterdam, Netherlands.">
+  <meta property="og:url" content="https://nexoiq.nl/">
+  <meta property="og:image" content="https://nexoiq.nl/og-logo.jpg">
+  <meta property="og:image:alt" content="NexoIQ logo">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale:alternate" content="nl_NL">
+  <meta property="og:locale:alternate" content="ar_AR">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="NexoIQ — Odoo ERP, CRM & Inventory · Power BI & Data Engineering">
+  <meta name="twitter:description" content="Odoo implementation, custom modules, CRM and inventory — plus Power BI and Databricks.">
+  <meta name="twitter:image" content="https://nexoiq.nl/og-logo.jpg">
+
+  <link rel="icon" type="image/png" href="data:image/png;base64,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">
+  <link rel="apple-touch-icon" href="data:image/png;base64,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">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "NexoIQ",
+    "url": "https://nexoiq.nl/",
+    "image": "https://nexoiq.nl/og-logo.jpg",
+    "email": "info@nexoiq.nl",
+    "description": "Odoo ERP implementation, custom modules, CRM and inventory, team training, Power BI and data engineering.",
+    "areaServed": "NL",
+    "availableLanguage": ["en", "nl", "ar"],
+    "address": { "@type": "PostalAddress", "addressLocality": "Rotterdam", "addressRegion": "Zuid-Holland", "addressCountry": "NL" },
+    "founder": {
+      "@type": "Person",
+      "name": "Ahmad Alhashimi",
+      "jobTitle": "ERP & Data Consultant",
+      "sameAs": ["https://www.linkedin.com/in/ahmad-alhashimi"],
+      "knowsAbout": ["Odoo", "ERP", "CRM", "Inventory management", "Python", "PostgreSQL", "Power BI", "DAX", "Azure Databricks", "Delta Lake", "PySpark", "dbt", "Data modeling", "Azure DevOps"]
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    if (window.tailwind) tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: { DEFAULT: '#08090c', 900: '#0c0e13', 800: '#11141b', 700: '#1a1e27' },
+            accent: { DEFAULT: '#ff7a00', soft: '#ffa142' }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"IBM Plex Sans Arabic"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+          }
         }
-    </script>
-    <style>
-        body { background-color: #08090c; color: #f3f4f6; overflow-x: hidden; }
-        .canvas-bg { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; }
-        .glass-card { background: rgba(15, 18, 24, 0.78); backdrop-filter: blur(14px); border: 1px solid rgba(36, 42, 56, 0.85); }
-        .glass-card:hover { border-color: rgba(255, 122, 0, 0.45); box-shadow: 0 10px 35px 0 rgba(255, 122, 0, 0.12); }
-        .text-gradient-orange { background: linear-gradient(135deg, #ffffff 25%, #ffaa00 70%, #ff7a00 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .orange-glow { box-shadow: 0 0 25px rgba(255, 122, 0, 0.35); }
-    </style>
+      }
+    };
+  </script>
+
+  <style>
+    html { background: #08090c; color: #e7e9ee; }
+    body { font-family: "Plus Jakarta Sans", "IBM Plex Sans Arabic", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    ::selection { background: rgba(255,122,0,.35); color: #fff; }
+
+    /* Arabic: Arabic typeface everywhere text is translated, no letter-spacing (it breaks joined letters) */
+    html[lang="ar"] body, html[lang="ar"] [data-i18n] { font-family: "IBM Plex Sans Arabic", "Plus Jakarta Sans", system-ui, sans-serif; }
+    html[lang="ar"] .eyebrow, html[lang="ar"] [data-i18n] { letter-spacing: 0 !important; text-transform: none !important; }
+    html[lang="ar"] h1 { line-height: 1.3; }
+    html[lang="ar"] p, html[lang="ar"] li { line-height: 1.85; }
+
+    .bg-grid {
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+    }
+    .glow-orb { background: radial-gradient(closest-side, rgba(255,122,0,.22), rgba(255,122,0,0)); filter: blur(10px); }
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(14px) saturate(140%);
+      -webkit-backdrop-filter: blur(14px) saturate(140%);
+      box-shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 20px 40px -24px rgba(0,0,0,.8);
+    }
+    .glass-hover { transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease; }
+    .glass-hover:hover {
+      border-color: rgba(255,122,0,.45); transform: translateY(-2px);
+      box-shadow: 0 1px 0 rgba(255,255,255,.05) inset, 0 24px 48px -24px rgba(255,122,0,.25);
+    }
+    .text-gradient { background: linear-gradient(90deg, #ff7a00, #ffb35c); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .eyebrow { font-family: "JetBrains Mono", monospace; letter-spacing: .14em; text-transform: uppercase; }
+
+    .flow-line { position: relative; overflow: hidden; }
+    .flow-line::after {
+      content: ""; position: absolute; left: 0; top: -40%; width: 100%; height: 40%;
+      background: linear-gradient(180deg, transparent, #ff7a00, transparent);
+      animation: flow 2.4s linear infinite;
+    }
+    .flow-line.d1::after { animation-delay: .5s; } .flow-line.d2::after { animation-delay: 1s; }
+    .flow-line.d3::after { animation-delay: 1.5s; } .flow-line.d4::after { animation-delay: 2s; }
+    @keyframes flow { to { top: 100%; } }
+
+    .lang-btn[aria-pressed="true"] { background: #ff7a00; color: #08090c; }
+
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px;
+      background: #ff7a00; transform: scaleX(0); transition: transform .25s ease;
+    }
+    .nav-link.active { color: #fff; }
+    .nav-link.active::after { transform: scaleX(1); }
+
+    [dir="rtl"] .flip-rtl { transform: scaleX(-1); }
+
+    .js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+    .js .reveal.in { opacity: 1; transform: none; }
+    [data-i18n] { transition: opacity .18s ease; }
+    .i18n-fading main, .i18n-fading header nav, .i18n-fading footer { opacity: .0; transition: opacity .18s ease; }
+    main, header nav, footer { transition: opacity .18s ease; }
+
+    :focus-visible { outline: 2px solid #ff7a00; outline-offset: 3px; border-radius: 6px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .js .reveal { opacity: 1; transform: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
 </head>
-<body class="font-sans antialiased selection:bg-brand-orange selection:text-black">
 
-    <!-- Three.js Animated Data Nodes -->
-    <canvas id="three-canvas" class="canvas-bg"></canvas>
+<body class="bg-ink text-slate-200 font-sans antialiased overflow-x-hidden">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:start-3 focus:z-[60] focus:bg-accent focus:text-ink focus:px-4 focus:py-2 focus:rounded-lg" data-i18n="skip">Skip to content</a>
 
-    <!-- Header / Navbar -->
-    <header class="sticky top-0 z-50 border-b border-brand-border/60 bg-brand-dark/90 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-3">
-                <img src="logo.jpg" alt="NexoIQ" class="h-11 w-auto max-w-[160px] object-contain rounded-md">
-                <div class="hidden sm:flex flex-col">
-                    <span class="font-extrabold text-2xl tracking-tight text-white leading-none">Nexo<span class="text-brand-orange">IQ</span></span>
-                    <span class="text-[9px] font-mono tracking-widest text-slate-400 uppercase mt-1">Data • Databricks • AI Solutions</span>
-                </div>
+  <!-- ============ HEADER ============ -->
+  <header id="top" class="fixed inset-x-0 top-0 z-50 transition-colors duration-300" data-header>
+    <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 sm:px-8" aria-label="Main">
+      <a href="#top" class="group flex items-center gap-2.5" aria-label="NexoIQ">
+        <img src="data:image/webp;base64,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" alt="" width="40" height="40" class="h-10 w-10 rounded-full shadow-[0_0_18px_-4px_rgba(255,122,0,.7)] transition group-hover:shadow-[0_0_26px_-2px_rgba(255,122,0,.9)]">
+        <span class="font-semibold tracking-tight text-white" dir="ltr">Nexo<span class="text-accent">IQ</span></span>
+      </a>
+
+      <ul class="hidden items-center gap-7 text-sm text-slate-400 lg:flex">
+        <li><a class="nav-link transition-colors hover:text-white" href="#services" data-i18n="nav.services">Services</a></li>
+        <li><a class="nav-link transition-colors hover:text-white" href="#approach" data-i18n="nav.approach">Approach</a></li>
+        <li><a class="nav-link transition-colors hover:text-white" href="#data" data-i18n="nav.data">Data &amp; BI</a></li>
+        <li><a class="nav-link transition-colors hover:text-white" href="#training" data-i18n="nav.training">Training</a></li>
+        <li><a class="nav-link transition-colors hover:text-white" href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+
+      <div class="flex items-center gap-3">
+        <a href="mailto:info@nexoiq.nl?subject=Odoo%20%2F%20ERP%20intro%20call" class="hidden rounded-xl bg-accent px-4 py-2 text-sm font-semibold text-ink transition hover:bg-accent-soft xl:inline-flex" data-i18n="nav.cta">Book an intro call</a>
+        <div class="flex rounded-full border border-white/10 bg-white/[0.04] p-1 text-xs" role="group" aria-label="Language">
+          <button type="button" class="lang-btn rounded-full px-2.5 py-1.5 font-mono font-semibold transition-colors sm:px-3" data-lang="en" aria-pressed="true" lang="en" title="English">EN</button>
+          <button type="button" class="lang-btn rounded-full px-2.5 py-1.5 font-mono font-semibold transition-colors sm:px-3" data-lang="nl" aria-pressed="false" lang="nl" title="Nederlands">NL</button>
+          <button type="button" class="lang-btn rounded-full px-2.5 py-1 text-sm font-semibold transition-colors sm:px-3" style="font-family:'IBM Plex Sans Arabic',sans-serif" data-lang="ar" aria-pressed="false" lang="ar" title="العربية">ع</button>
+        </div>
+        <button type="button" class="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/[0.04] lg:hidden" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobile-menu" class="hidden border-t border-white/5 bg-ink/95 backdrop-blur-xl lg:hidden">
+      <ul class="mx-auto flex max-w-6xl flex-col px-5 py-4 text-base">
+        <li><a class="block py-3 text-slate-300 hover:text-white" href="#services" data-i18n="nav.services">Services</a></li>
+        <li><a class="block py-3 text-slate-300 hover:text-white" href="#approach" data-i18n="nav.approach">Approach</a></li>
+        <li><a class="block py-3 text-slate-300 hover:text-white" href="#data" data-i18n="nav.data">Data &amp; BI</a></li>
+        <li><a class="block py-3 text-slate-300 hover:text-white" href="#training" data-i18n="nav.training">Training</a></li>
+        <li><a class="block py-3 text-slate-300 hover:text-white" href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="relative isolate overflow-hidden pb-20 pt-32 sm:pb-28 sm:pt-40" aria-labelledby="hero-title">
+      <div class="bg-grid absolute inset-0 -z-10" aria-hidden="true"></div>
+      <div class="glow-orb absolute -top-40 left-1/2 -z-10 h-[520px] w-[820px] -translate-x-1/2" aria-hidden="true"></div>
+
+      <div class="mx-auto grid max-w-6xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1.15fr_1fr]">
+        <div>
+          <p class="eyebrow mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-[11px] text-slate-300">
+            <span class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60"></span><span class="relative inline-flex h-2 w-2 rounded-full bg-accent"></span></span>
+            <span data-i18n="hero.eyebrow">Odoo ERP &amp; Data Consultancy · Rotterdam, NL</span>
+          </p>
+
+          <h1 id="hero-title" class="text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.5rem]" data-i18n="hero.title">
+            Odoo that fits <span class="text-gradient">how your business really works.</span>
+          </h1>
+
+          <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate-400" data-i18n="hero.lead">
+            I implement and extend Odoo — CRM, sales, purchasing, inventory and accounting — with custom modules, clean data and a team that understands its ERP. Backed by 8+ years of enterprise data engineering, Power BI and Databricks.
+          </p>
+
+          <div class="mt-9 flex flex-wrap items-center gap-3">
+            <a href="mailto:info@nexoiq.nl?subject=Odoo%20%2F%20ERP%20intro%20call" class="inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-3 font-semibold text-ink shadow-[0_10px_30px_-10px_rgba(255,122,0,.7)] transition hover:bg-accent-soft">
+              <span data-i18n="hero.cta1">Book an intro call</span>
+              <svg class="flip-rtl" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
+            <a href="#services" class="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-5 py-3 font-semibold text-white transition hover:border-accent/50" data-i18n="hero.cta2">Explore services</a>
+          </div>
 
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-                <a href="#services" class="hover:text-brand-orange transition-colors" data-i18n="navServices">Diensten</a>
-                <a href="#academy" class="hover:text-brand-orange transition-colors" data-i18n="navAcademy">Training & Mentorship</a>
-                <a href="#calculator" class="hover:text-brand-orange transition-colors" data-i18n="navCalc">ROI Calculator</a>
-                <a href="#compliance" class="hover:text-brand-orange transition-colors" data-i18n="navCompliance">Bedrijfsgegevens</a>
-            </nav>
-
-            <div class="flex items-center gap-4">
-                <button id="langToggle" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-brand-border text-xs font-mono text-slate-300 hover:border-brand-orange transition-colors" aria-label="Taal wisselen">
-                    <i data-lucide="globe" class="w-3.5 h-3.5"></i>
-                    <span id="langText">EN</span>
-                </button>
-                <a href="mailto:info@nexoiq.nl?subject=Aanvraag%20Data%20Consultancy" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-brand-orange to-brand-amber text-black font-bold text-sm hover:brightness-110 orange-glow transition-all flex items-center gap-2">
-                    <span data-i18n="ctaButton">Plan Adviesgesprek</span>
-                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </a>
+          <dl class="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-white/5 pt-8">
+            <div>
+              <dt class="font-mono text-[11px] uppercase tracking-wider text-slate-500" data-i18n="hero.s1.k">Experience</dt>
+              <dd class="mt-1 text-2xl font-bold text-white">8+ <span class="text-base font-medium text-slate-400" data-i18n="hero.s1.v">yrs</span></dd>
             </div>
+            <div>
+              <dt class="font-mono text-[11px] uppercase tracking-wider text-slate-500" data-i18n="hero.s2.k">Platform</dt>
+              <dd class="mt-1 text-sm font-semibold leading-snug text-white" dir="ltr">Odoo 18 · Odoo.sh</dd>
+            </div>
+            <div>
+              <dt class="font-mono text-[11px] uppercase tracking-wider text-slate-500" data-i18n="hero.s3.k">Languages</dt>
+              <dd class="mt-1 text-sm font-semibold leading-snug text-white" dir="ltr">EN · NL · <span style="font-family:'IBM Plex Sans Arabic',sans-serif">عربي</span></dd>
+            </div>
+          </dl>
         </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="max-w-7xl mx-auto px-6 pt-24 pb-20 text-center relative">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-orange/30 bg-brand-surface/80 backdrop-blur-md mb-8 shadow-[0_0_15px_rgba(255,122,0,0.15)]">
-            <span class="w-2 h-2 rounded-full bg-brand-orange animate-ping"></span>
-            <span class="text-xs font-mono text-slate-300" data-i18n="badgeText">Data Engineering & Lakehouse Consultancy • Rotterdam, NL</span>
+        <!-- Hero visual: ERP flow -->
+        <div class="glass relative rounded-2xl p-6 sm:p-7" role="img" aria-label="Odoo ERP flow: CRM, sales, purchase, inventory, accounting, Power BI">
+          <div class="mb-5 flex items-center justify-between" dir="ltr">
+            <div class="flex gap-1.5" aria-hidden="true"><span class="h-2.5 w-2.5 rounded-full bg-white/15"></span><span class="h-2.5 w-2.5 rounded-full bg-white/15"></span><span class="h-2.5 w-2.5 rounded-full bg-accent/80"></span></div>
+            <span class="font-mono text-[11px] text-slate-500">odoo.erp.flow</span>
+          </div>
+          <ol class="space-y-0 text-[13px]">
+            <li class="flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3.5">
+              <span class="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-white/5 font-mono text-slate-300">01</span>
+              <div class="min-w-0"><p class="font-semibold text-slate-200">CRM</p><p class="truncate text-[11.5px] text-slate-500" data-i18n="viz.crm">Leads · pipeline · follow-ups</p></div>
+            </li>
+            <li class="flow-line mx-auto h-4 w-px bg-white/10" aria-hidden="true"></li>
+            <li class="flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3.5">
+              <span class="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-white/5 font-mono text-slate-300">02</span>
+              <div class="min-w-0"><p class="font-semibold text-slate-200" data-i18n="viz.sales.t">Sales</p><p class="truncate text-[11.5px] text-slate-500" data-i18n="viz.sales">Quotations · discounts · approvals</p></div>
+            </li>
+            <li class="flow-line d1 mx-auto h-4 w-px bg-white/10" aria-hidden="true"></li>
+            <li class="flex items-center gap-3 rounded-xl border border-accent/30 bg-accent/[0.06] p-3.5">
+              <span class="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-accent/20 font-mono text-accent">03</span>
+              <div class="min-w-0"><p class="font-semibold text-white" data-i18n="viz.inv.t">Purchase &amp; Inventory</p><p class="truncate text-[11.5px] text-slate-400" data-i18n="viz.inv">Warehouses · routes · stock</p></div>
+            </li>
+            <li class="flow-line d2 mx-auto h-4 w-px bg-white/10" aria-hidden="true"></li>
+            <li class="flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3.5">
+              <span class="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-white/5 font-mono text-slate-300">04</span>
+              <div class="min-w-0"><p class="font-semibold text-slate-200" data-i18n="viz.acc.t">Accounting</p><p class="truncate text-[11.5px] text-slate-500" data-i18n="viz.acc">Invoices · payments</p></div>
+            </li>
+            <li class="flow-line d3 mx-auto h-4 w-px bg-white/10" aria-hidden="true"></li>
+            <li class="flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3.5">
+              <span class="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-[#f2c811]/15 font-mono text-[#f2c811]">05</span>
+              <div class="min-w-0"><p class="font-semibold text-slate-200">Power BI</p><p class="truncate text-[11.5px] text-slate-500" data-i18n="viz.bi">KPIs · dashboards · decisions</p></div>
+            </li>
+          </ol>
         </div>
-        
-        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight max-w-4xl mx-auto leading-[1.15] mb-6">
-            <span data-i18n="heroTitle">Industriële Schaal</span><br/>
-            <span class="text-gradient-orange" data-i18n="heroSub">Datapijplijnen & Databricks Lakehouse</span>
-        </h1>
-        
-        <p class="max-w-2xl mx-auto text-lg text-slate-400 mb-10 leading-relaxed" data-i18n="heroDesc">
-            Architectuur van betrouwbare Databricks Lakehouses, geautomatiseerde ETL-verwerking en enterprise LLMOps. Daarnaast verzorgen wij hands-on trainingen voor interne datateams.
-        </p>
-
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="mailto:info@nexoiq.nl?subject=Project%20Inquiry%20-%20NexoIQ" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-orange to-brand-amber text-black font-extrabold text-base hover:brightness-110 orange-glow transition-all">
-                <span data-i18n="heroCta1">Plan Technische Sessie</span>
-            </a>
-            <a href="#academy" class="w-full sm:w-auto px-8 py-4 rounded-xl border border-brand-border glass-card font-semibold text-slate-200 hover:border-brand-orange/60 transition-all">
-                <span data-i18n="heroCta2">Ontdek Data Trainingen</span>
-            </a>
-        </div>
+      </div>
     </section>
 
-    <!-- Core Services -->
-    <section id="services" class="max-w-7xl mx-auto px-6 py-20">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4" data-i18n="servicesTitle">Gespecialiseerde Diensten</h2>
-            <p class="text-slate-400 max-w-xl mx-auto" data-i18n="servicesDesc">Van ruwe, versnipperde data naar een performante data-infrastructuur die uw rapportages en AI-modellen foutloos voedt.</p>
+    <!-- ============ SERVICES ============ -->
+    <section id="services" class="scroll-mt-24 py-20 sm:py-28" aria-labelledby="services-title">
+      <div class="mx-auto max-w-6xl px-5 sm:px-8">
+        <header class="reveal mb-12 max-w-2xl">
+          <p class="eyebrow mb-3 text-xs text-accent"><span dir="ltr">01</span> — <span data-i18n="services.eyebrow">Services</span></p>
+          <h2 id="services-title" class="text-3xl font-bold tracking-tight text-white sm:text-4xl" data-i18n="services.title">From first setup to a team that runs on Odoo</h2>
+          <p class="mt-4 text-slate-400" data-i18n="services.lead">Standard Odoo first, custom code only where it adds real value — and data you can trust in every report.</p>
+        </header>
+
+        <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <article class="reveal glass glass-hover flex flex-col rounded-2xl p-6 sm:p-7">
+            <span class="grid h-12 w-12 place-items-center rounded-xl border border-accent/30 bg-accent/15 text-accent" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+            </span>
+            <h3 class="mt-6 text-xl font-semibold text-white" data-i18n="srv.1.t">Odoo implementation &amp; configuration</h3>
+            <p class="mt-3 flex-1 text-[15px] leading-relaxed text-slate-400" data-i18n="srv.1.d">Sales, CRM, purchasing, inventory and accounting set up around your real processes — on Odoo.sh or your own server, with clean master data from day one.</p>
+            <p class="mt-6 font-mono text-xs font-semibold text-accent" dir="ltr">Odoo 18 • Odoo.sh • Enterprise &amp; Community</p>
+          </article>
+
+          <article class="reveal glass glass-hover flex flex-col rounded-2xl p-6 sm:p-7">
+            <span class="grid h-12 w-12 place-items-center rounded-xl border border-accent/30 bg-accent/15 text-accent" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6M16 6l6 6-6 6M13.5 4l-3 16"/></svg>
+            </span>
+            <h3 class="mt-6 text-xl font-semibold text-white" data-i18n="srv.2.t">Custom Odoo modules</h3>
+            <p class="mt-3 flex-1 text-[15px] leading-relaxed text-slate-400" data-i18n="srv.2.d">When standard is not enough: approval flows, discount rules, access rights, automated activities and integrations — built upgrade-safe, version-controlled and tested.</p>
+            <p class="mt-6 font-mono text-xs font-semibold text-accent" dir="ltr">Python • ORM • XML/QWeb • OWL • Git</p>
+          </article>
+
+          <article class="reveal glass glass-hover flex flex-col rounded-2xl p-6 sm:p-7">
+            <span class="grid h-12 w-12 place-items-center rounded-xl border border-accent/30 bg-accent/15 text-accent" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18l-7 8v6l-4 2v-8z"/></svg>
+            </span>
+            <h3 class="mt-6 text-xl font-semibold text-white" data-i18n="srv.3.t">CRM &amp; sales process</h3>
+            <p class="mt-3 flex-1 text-[15px] leading-relaxed text-slate-400" data-i18n="srv.3.d">Pipelines that mirror how you sell: lead qualification, quotations, follow-ups, discount approvals and a clear owner for every step.</p>
+            <p class="mt-6 font-mono text-xs font-semibold text-accent" dir="ltr">CRM • Sales • Activities • Approvals</p>
+          </article>
+
+          <article class="reveal glass glass-hover flex flex-col rounded-2xl p-6 sm:p-7">
+            <span class="grid h-12 w-12 place-items-center rounded-xl border border-accent/30 bg-accent/15 text-accent" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-6 9 6v12"/><path d="M7 21v-8h10v8M7 17h10"/></svg>
+            </span>
+            <h3 class="mt-6 text-xl font-semibold text-white" data-i18n="srv.4.t">Inventory &amp; warehouses</h3>
+            <p class="mt-3 flex-1 text-[15px] leading-relaxed text-slate-400" data-i18n="srv.4.d">Multiple warehouses and companies, buy and replenishment routes, stock visibility per team and reliable purchasing — so the stock in Odoo matches the stock on the shelf.</p>
+            <p class="mt-6 font-mono text-xs font-semibold text-accent" dir="ltr">Inventory • Routes • Purchase • Multi-company</p>
+          </article>
+
+          <article class="reveal glass glass-hover flex flex-col rounded-2xl p-6 sm:p-7">
+            <span class="grid h-12 w-12 place-items-center rounded-xl border border-accent/30 bg-accent/15 text-accent" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18.5 14.8c1.6.8 2.7 2.5 3 5.2"/></svg>
+            </span>
+            <h3 class="mt-6 text-xl font-semibold text-white" data-i18n="srv.5.t">Team enablement &amp; ERP adoption</h3>
+            <p class="mt-3 flex-1 text-[15px] leading-relaxed text-slate-400" data-i18n="srv.5.d">I explain the ERP in your team's language: key-user training, test scenarios for managers, clear user guides and support after go-live — so people actually use the system.</p>
+            <p class="mt-6 font-mono text-xs font-semibold text-accent" data-i18n="srv.5.tags">Training • Test guides • Go-live support</p>
+          </article>
+
+          <article class="reveal glass glass-hover flex flex-col rounded-2xl p-6 sm:p-7">
+            <span class="grid h-12 w-12 place-items-center rounded-xl border border-white/10 bg-white/5 text-[#f2c811]" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+            </span>
+            <h3 class="mt-6 text-xl font-semibold text-white" data-i18n="srv.6.t">Data, Power BI &amp; Databricks</h3>
+            <p class="mt-3 flex-1 text-[15px] leading-relaxed text-slate-400" data-i18n="srv.6.d">Turn ERP data into decisions: Power BI models on Odoo and other sources, solid data modeling, and Azure Databricks pipelines when volumes grow.</p>
+            <p class="mt-6 font-mono text-xs font-semibold text-accent" dir="ltr">Power BI • DAX • Databricks • dbt</p>
+          </article>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Databricks Lakehouse -->
-            <div class="glass-card rounded-2xl p-8 transition-all">
-                <div class="w-12 h-12 rounded-xl bg-brand-orange/15 border border-brand-orange/30 flex items-center justify-center text-brand-orange mb-6">
-                    <i data-lucide="database" class="w-6 h-6"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3" data-i18n="srv1Title">Databricks Lakehouse & Delta Lake</h3>
-                <p class="text-slate-400 text-sm leading-relaxed mb-6" data-i18n="srv1Desc">Productie-implementaties op Azure Databricks en AWS. Unificatie van batch & streaming verwerking met geavanceerde Delta Live Tables.</p>
-                <div class="font-mono text-xs text-brand-orange font-semibold">Databricks • Delta Lake • Apache Spark</div>
-            </div>
-
-            <!-- Data Cleansing & Modeling -->
-            <div class="glass-card rounded-2xl p-8 transition-all">
-                <div class="w-12 h-12 rounded-xl bg-brand-orange/15 border border-brand-orange/30 flex items-center justify-center text-brand-orange mb-6">
-                    <i data-lucide="filter" class="w-6 h-6"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3" data-i18n="srv2Title">Data Opschoning & Modellering</h3>
-                <p class="text-slate-400 text-sm leading-relaxed mb-6" data-i18n="srv2Desc">Geautomatiseerde data cleaning pipelines en robuuste datamodellering. Zodat dashboards zoals Power BI direct kunnen rekenen op zuivere cijfers.</p>
-                <div class="font-mono text-xs text-brand-orange font-semibold">dbt • PySpark • Automated Quality Contracts</div>
-            </div>
-
-            <!-- LLMOps & GenAI -->
-            <div class="glass-card rounded-2xl p-8 transition-all">
-                <div class="w-12 h-12 rounded-xl bg-brand-orange/15 border border-brand-orange/30 flex items-center justify-center text-brand-orange mb-6">
-                    <i data-lucide="cpu" class="w-6 h-6"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3" data-i18n="srv3Title">AI Infrastructuur & LLMOps</h3>
-                <p class="text-slate-400 text-sm leading-relaxed mb-6" data-i18n="srv3Desc">Vector indexering, RAG data pipelines en Azure OpenAI integraties. Uw bedrijfsdata schaalbaar en veilig voorbereid op generatieve AI.</p>
-                <div class="font-mono text-xs text-brand-orange font-semibold">Vector DBs • Hybrid Search • Azure AI</div>
-            </div>
-        </div>
+      </div>
     </section>
 
-    <!-- Education & Training Section -->
-    <section id="academy" class="max-w-7xl mx-auto px-6 py-16">
-        <div class="glass-card rounded-3xl p-8 md:p-12 border border-brand-orange/30 relative overflow-hidden">
-            <div class="max-w-3xl">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-orange/20 text-brand-orange font-mono text-xs font-semibold mb-4">
-                    <i data-lucide="graduation-cap" class="w-4 h-4"></i>
-                    <span data-i18n="acadBadge">Kennisoverdracht & Data Mentorship</span>
-                </div>
-                <h3 class="text-3xl font-bold text-white mb-4" data-i18n="acadTitle">Data Engineering Training voor Teams</h3>
-                <p class="text-slate-300 text-sm md:text-base leading-relaxed mb-6" data-i18n="acadDesc">
-                    Naast consultancy helpen we bedrijven om onafhankelijk te worden. Wij verzorgen praktijkgerichte trainingen en 1-op-1 coaching in Apache Spark, Databricks, geavanceerde SQL-optimalisatie en moderne data-architectuur.
-                </p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs text-slate-300 mb-8">
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="check-circle" class="w-4 h-4 text-brand-orange"></i>
-                        <span data-i18n="acadPt1">Databricks & PySpark Fundamentals</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="check-circle" class="w-4 h-4 text-brand-orange"></i>
-                        <span data-i18n="acadPt2">Data Quality & Pipeline Orchestration</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="check-circle" class="w-4 h-4 text-brand-orange"></i>
-                        <span data-i18n="acadPt3">Van Ruwe Data naar Analytics-Ready Tabellen</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="check-circle" class="w-4 h-4 text-brand-orange"></i>
-                        <span data-i18n="acadPt4">Praktijkgerichte Enterprise Use-cases</span>
-                    </div>
-                </div>
-                <a href="mailto:info@nexoiq.nl?subject=Aanvraag%20Data%20Engineering%20Training" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-orange text-black font-bold text-sm hover:brightness-110 orange-glow transition-all">
-                    <span data-i18n="acadCta">Bespreek een Incompany Training</span>
-                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </a>
-            </div>
-        </div>
+    <!-- ============ APPROACH ============ -->
+    <section id="approach" class="scroll-mt-24 border-y border-white/5 bg-ink-900/60 py-20 sm:py-28" aria-labelledby="approach-title">
+      <div class="mx-auto max-w-6xl px-5 sm:px-8">
+        <header class="reveal mb-12 max-w-2xl">
+          <p class="eyebrow mb-3 text-xs text-accent"><span dir="ltr">02</span> — <span data-i18n="approach.eyebrow">Approach</span></p>
+          <h2 id="approach-title" class="text-3xl font-bold tracking-tight text-white sm:text-4xl" data-i18n="approach.title">How an Odoo project runs with me</h2>
+          <p class="mt-4 text-slate-400" data-i18n="approach.lead">No surprises in production: every change is understood, tested and explained before it goes live.</p>
+        </header>
+
+        <ol class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <li class="reveal glass glass-hover rounded-2xl p-6">
+            <p class="font-mono text-sm text-accent">01</p>
+            <h3 class="mt-2 text-lg font-semibold text-white" data-i18n="ap.1.t">Understand</h3>
+            <p class="mt-2 text-[15px] text-slate-400" data-i18n="ap.1.d">Sessions with your team to map processes, roles and pain points — before touching any configuration.</p>
+          </li>
+          <li class="reveal glass glass-hover rounded-2xl p-6">
+            <p class="font-mono text-sm text-accent">02</p>
+            <h3 class="mt-2 text-lg font-semibold text-white" data-i18n="ap.2.t">Design &amp; configure</h3>
+            <p class="mt-2 text-[15px] text-slate-400" data-i18n="ap.2.d">Standard Odoo features first; a clear list of what needs a custom module and why.</p>
+          </li>
+          <li class="reveal glass glass-hover rounded-2xl p-6">
+            <p class="font-mono text-sm text-accent">03</p>
+            <h3 class="mt-2 text-lg font-semibold text-white" data-i18n="ap.3.t">Develop</h3>
+            <p class="mt-2 text-[15px] text-slate-400" data-i18n="ap.3.d">Custom modules with automated tests, kept in Git and deployed through Odoo.sh branches.</p>
+          </li>
+          <li class="reveal glass glass-hover rounded-2xl p-6">
+            <p class="font-mono text-sm text-accent">04</p>
+            <h3 class="mt-2 text-lg font-semibold text-white" data-i18n="ap.4.t">Test on staging</h3>
+            <p class="mt-2 text-[15px] text-slate-400" data-i18n="ap.4.d">Every change tried on a copy of your data, with a step-by-step test guide for your managers.</p>
+          </li>
+          <li class="reveal glass glass-hover rounded-2xl p-6">
+            <p class="font-mono text-sm text-accent">05</p>
+            <h3 class="mt-2 text-lg font-semibold text-white" data-i18n="ap.5.t">Train</h3>
+            <p class="mt-2 text-[15px] text-slate-400" data-i18n="ap.5.d">Key users and teams trained on their own daily flows, in their own language.</p>
+          </li>
+          <li class="reveal glass glass-hover rounded-2xl p-6">
+            <p class="font-mono text-sm text-accent">06</p>
+            <h3 class="mt-2 text-lg font-semibold text-white" data-i18n="ap.6.t">Go live &amp; support</h3>
+            <p class="mt-2 text-[15px] text-slate-400" data-i18n="ap.6.d">Backup and rollback plan before release, then follow-up while the team settles in.</p>
+          </li>
+        </ol>
+      </div>
     </section>
 
-    <!-- Interactive Calculator -->
-    <section id="calculator" class="max-w-4xl mx-auto px-6 py-20">
-        <div class="glass-card rounded-3xl p-8 md:p-12 border border-brand-border/80">
-            <div class="flex items-center gap-3 mb-6">
-                <i data-lucide="calculator" class="text-brand-orange w-6 h-6"></i>
-                <h3 class="text-2xl font-bold text-white" data-i18n="calcTitle">Pijplijn Efficiëntie & Cloud Compute Calculator</h3>
-            </div>
-            <p class="text-slate-400 text-sm mb-8" data-i18n="calcSubtitle">Schat de potentiële query-versnelling en jaarlijkse compute-besparing in door Databricks Lakehouse optimalisatie.</p>
+    <!-- ============ DATA & BI ============ -->
+    <section id="data" class="scroll-mt-24 py-20 sm:py-28" aria-labelledby="data-title">
+      <div class="mx-auto max-w-6xl px-5 sm:px-8">
+        <header class="reveal mb-12 max-w-2xl">
+          <p class="eyebrow mb-3 text-xs text-accent"><span dir="ltr">03</span> — <span data-i18n="data.eyebrow">Data &amp; BI</span></p>
+          <h2 id="data-title" class="text-3xl font-bold tracking-tight text-white sm:text-4xl" data-i18n="data.title">Enterprise data engineering behind every ERP project</h2>
+          <p class="mt-4 text-slate-400" data-i18n="data.lead">8+ years of data platforms in manufacturing, insurance and international programmes — the same rigour I bring to your Odoo data.</p>
+        </header>
 
-            <div class="space-y-6">
-                <div>
-                    <div class="flex justify-between text-sm font-medium mb-2">
-                        <span class="text-slate-300" data-i18n="calcVolumeLabel">Maandelijks Data Volume</span>
-                        <span id="volumeVal" class="text-brand-orange font-mono font-bold">2.5 TB</span>
-                    </div>
-                    <input id="volumeSlider" type="range" min="0.5" max="25" step="0.5" value="2.5" class="w-full h-2 bg-brand-border rounded-lg appearance-none cursor-pointer accent-[#ff7a00]">
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-2" data-i18n="calcCloudLabel">Primaire Cloud Omgeving</label>
-                    <select id="cloudSelect" class="w-full bg-brand-surface border border-brand-border rounded-xl px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-brand-orange">
-                        <option value="azure">Microsoft Azure (Fabric / Synapse / ADLS)</option>
-                        <option value="aws">Amazon Web Services (Databricks / S3 / EMR)</option>
-                        <option value="gcp">Google Cloud Platform (BigQuery)</option>
-                    </select>
-                </div>
-
-                <div class="pt-6 border-t border-brand-border/60 grid grid-cols-1 sm:grid-cols-2 gap-4 text-center">
-                    <div class="p-4 rounded-xl bg-brand-surface/90 border border-brand-border">
-                        <div class="text-xs font-mono text-slate-400 uppercase mb-1" data-i18n="calcMetric1">Verwachte Query Versnelling</div>
-                        <div id="accelMetric" class="text-2xl font-extrabold text-brand-orange font-mono">4.2x Sneller</div>
-                    </div>
-                    <div class="p-4 rounded-xl bg-brand-surface/90 border border-brand-border">
-                        <div class="text-xs font-mono text-slate-400 uppercase mb-1" data-i18n="calcMetric2">Geschatte Jaarlijkse Besparing</div>
-                        <div id="costMetric" class="text-2xl font-extrabold text-amber-400 font-mono">€ 14,200</div>
-                    </div>
-                </div>
-            </div>
+        <div class="grid gap-5 md:grid-cols-2">
+          <article class="reveal glass glass-hover rounded-2xl p-6">
+            <span class="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 font-mono text-[11px] text-accent" data-i18n="data.1.tag">Modernisation</span>
+            <h3 class="mt-5 text-xl font-semibold text-white" data-i18n="data.1.t">Legacy ETL → Azure Databricks Lakehouse</h3>
+            <p class="mt-3 text-slate-400" data-i18n="data.1.d">For an international manufacturing group: legacy SSIS workflows moved to one Lakehouse on PySpark, Delta Lake and Unity Catalog, with CI/CD in Azure DevOps.</p>
+          </article>
+          <article class="reveal glass glass-hover rounded-2xl p-6">
+            <span class="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 font-mono text-[11px] text-accent" data-i18n="data.2.tag">Reporting</span>
+            <h3 class="mt-5 text-xl font-semibold text-white" data-i18n="data.2.t">ERP &amp; CRM data → Power BI</h3>
+            <p class="mt-3 text-slate-400" data-i18n="data.2.d">Enterprise semantic models on ERP and CRM data — one definition of every KPI, shared by regional business units and refreshed automatically.</p>
+          </article>
+          <article class="reveal glass glass-hover rounded-2xl p-6">
+            <span class="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 font-mono text-[11px] text-accent" data-i18n="data.3.tag">Integration</span>
+            <h3 class="mt-5 text-xl font-semibold text-white" data-i18n="data.3.t">Zero-copy ERP integration</h3>
+            <p class="mt-3 text-slate-400" data-i18n="data.3.d">SAP data consumed in Databricks without copying it — lower latency, no duplicated storage, one source of truth.</p>
+          </article>
+          <article class="reveal glass glass-hover rounded-2xl p-6">
+            <span class="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 font-mono text-[11px] text-accent" data-i18n="data.4.tag">Scale</span>
+            <h3 class="mt-5 text-xl font-semibold text-white" data-i18n="data.4.t">Regulated &amp; multi-country data</h3>
+            <p class="mt-3 text-slate-400" data-i18n="data.4.d">Dimensional models for risk and actuarial teams in insurance, and executive dashboards for multi-country programmes reaching 100K+ people.</p>
+          </article>
         </div>
+      </div>
     </section>
 
-    <!-- Company Details & Compliance Section -->
-    <section id="compliance" class="max-w-7xl mx-auto px-6 py-12 border-t border-brand-border/40">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
-            <div class="p-6 rounded-2xl glass-card">
-                <div class="font-bold text-white mb-2" data-i18n="comp1Title">Wettelijke Registratie</div>
-                <div class="text-slate-400 font-mono text-xs space-y-1">
-                    <div>Handelsnaam: <strong class="text-slate-200">NexoIQ</strong></div>
-                    <div>Rechtsvorm: <strong class="text-slate-200">Eenmanszaak</strong></div>
-                    <div>KVK-nummer: <strong class="text-brand-orange">42175764</strong> <!-- ضع رقمك الفعلي المكون من 8 أرقام هنا --></div>
-                    <div>Regio: <strong class="text-slate-200">Rotterdam, Zuid-Holland</strong></div>
-                </div>
+    <!-- ============ TRAINING ============ -->
+    <section id="training" class="scroll-mt-24 border-y border-white/5 bg-ink-900/60 py-20 sm:py-28" aria-labelledby="training-title">
+      <div class="mx-auto max-w-6xl px-5 sm:px-8">
+        <div class="reveal glass relative overflow-hidden rounded-3xl p-7 sm:p-12" style="border-color:rgba(255,122,0,.3)">
+          <div class="glow-orb pointer-events-none absolute -end-40 -top-40 h-[420px] w-[420px]" aria-hidden="true"></div>
+          <div class="relative grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:items-center">
+            <div>
+              <p class="eyebrow mb-3 text-xs text-accent"><span dir="ltr">04</span> — <span data-i18n="tr.eyebrow">Training &amp; mentorship</span></p>
+              <h2 id="training-title" class="text-3xl font-bold tracking-tight text-white sm:text-4xl" data-i18n="tr.title">Odoo &amp; ERP training for your team</h2>
+              <p class="mt-4 text-slate-300" data-i18n="tr.lead">An ERP only works when people understand it. I train key users and managers on the flows they use every day — and coach data teams in Power BI, Databricks and PySpark.</p>
+              <a href="mailto:info@nexoiq.nl?subject=Team%20training" class="mt-8 inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-3 font-semibold text-ink shadow-[0_10px_30px_-10px_rgba(255,122,0,.7)] transition hover:bg-accent-soft">
+                <span data-i18n="tr.cta">Request team training</span>
+                <svg class="flip-rtl" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
             </div>
-
-            <div class="p-6 rounded-2xl glass-card">
-                <div class="font-bold text-white mb-2" data-i18n="comp2Title">Activiteiten & SBI-Code</div>
-                <div class="text-slate-400 font-mono text-xs space-y-1">
-                    <div>SBI 63100: Gegevensverwerking & infrastructuur</div>
-                    <div>SBI 6202: IT-advies & data architectuur</div>
-                    <div>BTW-id: <span class="text-slate-300">Op factuur vermeld</span></div>
-                    <div>AVG / GDPR: <span class="text-emerald-400">100% Conform</span></div>
-                </div>
-            </div>
-
-            <div class="p-6 rounded-2xl glass-card">
-                <div class="font-bold text-white mb-2" data-i18n="comp3Title">Contact & Vestiging</div>
-                <div class="text-slate-400 font-mono text-xs space-y-1">
-                    <div>E-mail: <a href="mailto:info@nexoiq.nl" class="text-brand-orange hover:underline">info@nexoiq.nl</a></div>
-                    <div>Website: <strong class="text-slate-200">nexoiq.nl</strong></div>
-                    <div>Locatie: <strong class="text-slate-200">Zuid-Holland, Nederland</strong></div>
-                    <div>Werkwijze: <strong class="text-slate-200">Hybride / On-site / Remote</strong></div>
-                </div>
-            </div>
+            <ul class="grid gap-3 text-[14px] text-slate-200">
+              <li class="flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.03] p-4"><span class="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-accent/20 text-accent" aria-hidden="true">✓</span><span data-i18n="tr.p1">Odoo for key users &amp; managers</span></li>
+              <li class="flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.03] p-4"><span class="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-accent/20 text-accent" aria-hidden="true">✓</span><span data-i18n="tr.p2">Understanding the ERP flow: CRM → sales → stock → invoice</span></li>
+              <li class="flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.03] p-4"><span class="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-accent/20 text-accent" aria-hidden="true">✓</span><span data-i18n="tr.p3">Test scenarios &amp; user guides</span></li>
+              <li class="flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.03] p-4"><span class="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-accent/20 text-accent" aria-hidden="true">✓</span><span data-i18n="tr.p4">Power BI, Databricks &amp; PySpark workshops</span></li>
+            </ul>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-brand-border/60 bg-brand-dark/95 py-10 text-xs text-slate-400">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div class="flex items-center gap-3">
-                <span class="font-extrabold text-base text-white">Nexo<span class="text-brand-orange">IQ</span></span>
-                <span class="text-slate-600">|</span>
-                <span class="font-mono">Ingeschreven in het Handelsregister KVK Rotterdam</span>
-            </div>
-            
-            <div class="text-slate-500 font-mono">
-                © <span id="year">2026</span> NexoIQ. Alle rechten voorbehouden.
-            </div>
+    <!-- ============ STACK ============ -->
+    <section id="stack" class="scroll-mt-24 py-20 sm:py-28" aria-labelledby="stack-title">
+      <div class="mx-auto max-w-6xl px-5 sm:px-8">
+        <header class="reveal mb-12 max-w-2xl">
+          <p class="eyebrow mb-3 text-xs text-accent"><span dir="ltr">05</span> — <span data-i18n="stack.eyebrow">Tech stack</span></p>
+          <h2 id="stack-title" class="text-3xl font-bold tracking-tight text-white sm:text-4xl" data-i18n="stack.title">Tools I work with</h2>
+        </header>
+
+        <div class="grid gap-5 sm:grid-cols-2">
+          <article class="reveal glass glass-hover rounded-2xl p-6">
+            <h3 class="mb-5 text-lg font-semibold text-white" data-i18n="stack.c1">Odoo &amp; ERP</h3>
+            <ul class="flex flex-wrap gap-2 font-mono text-[12.5px]" dir="ltr">
+              <li class="rounded-lg border border-accent/30 bg-accent/10 px-2.5 py-1.5 text-accent-soft">Odoo 18</li>
+              <li class="rounded-lg border border-accent/30 bg-accent/10 px-2.5 py-1.5 text-accent-soft">Odoo.sh</li>
+              <li class="rounded-lg border border-accent/30 bg-accent/10 px-2.5 py-1.5 text-accent-soft">Python</li>
+              <li class="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5 text-slate-300">PostgreSQL</li>
+              <li class="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5 text-slate-300">XML / QWeb</li>
+              <li class="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5 text-slate-300">OWL / JavaScript</li>
+              <li class="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5 text-slate-300">Git</li>
+              <li class="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5 text-slate-300">Microsoft Dynamics 365</li>
+            </ul>
+          </article>
+          <article class="reveal glass glass-hover rounded-2xl p-6">
+            <h3 class="mb-5 text-lg font-semibold text-white" data-i18n="stack.c2">BI &amp; data modeling</h3>
+            <ul class="flex flex-wrap gap-2 font-mono text-[12.5px]" dir="ltr">
+              <li class="rounded-lg border border-accent/30 bg-accent/10 px-2.5 py-1.5 text-accent-soft">Power BI</li>
+              <li class="rounded-lg border border-accent/30 bg-accent/10 px-2.5 py-1.5 text-accent-soft">DAX</li>
+              <li class="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5 text-slate-300">Dimensional Modeling</li>
+              <li class="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5 text-slate-300">Data Vault</li>
+              <li class="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5 text-slate-300">Medallion</li>
+              <li class="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5 text-slate-300">SQL / T-SQL</li>
+            </ul>
+          </article>
+          <article class="reveal glass glass-hover rounded-2xl p-6">
+            <h3 class="mb-5 text-lg font-semibold text-white" data-i18n="stack.c3">Data engineering &amp; cloud</h3>
+            <ul class="flex flex-wrap gap-2 font-mono text-[12.5px]" dir="ltr">
+              <li class="rounded-lg border border-accent/30 bg-accent/10 px-2.5 py-1.5 text-accent-soft">Azure Databricks</li>
+              <li class="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5 text-slate-300">Delta Lake</li>
+              <li class="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5 text-slate-300">Unity Catalog</li>
+              <li class="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5 text-slate-300">PySpark</li>
+              <li class="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5 text-slate-300">dbt</li>
+              <li class="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5 text-slate-300">Azure Data Factory</li>
+              <li class="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5 text-slate-300">Apache Airflow</li>
+              <li class="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5 text-slate-300">BigQuery</li>
+            </ul>
+          </article>
+          <article class="reveal glass glass-hover rounded-2xl p-6">
+            <h3 class="mb-5 text-lg font-semibold text-white" data-i18n="stack.c4">DevOps &amp; governance</h3>
+            <ul class="flex flex-wrap gap-2 font-mono text-[12.5px]">
+              <li class="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5 text-slate-300" dir="ltr">Azure DevOps</li>
+              <li class="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5 text-slate-300" dir="ltr">CI/CD</li>
+              <li class="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5 text-slate-300" data-i18n="stack.tests">Automated tests</li>
+              <li class="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5 text-slate-300" data-i18n="stack.dq">Data quality contracts</li>
+              <li class="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5 text-slate-300" data-i18n="stack.gdpr">GDPR / AVG</li>
+            </ul>
+          </article>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <!-- Three.js Visualizer & Interactivity -->
-    <script>
-        lucide.createIcons();
-        document.getElementById('year').textContent = new Date().getFullYear();
+    <!-- ============ CERTIFICATIONS ============ -->
+    <section id="certifications" class="scroll-mt-24 border-t border-white/5 bg-ink-900/60 py-20 sm:py-24" aria-labelledby="certs-title">
+      <div class="mx-auto max-w-6xl px-5 sm:px-8">
+        <header class="reveal mb-10 max-w-2xl">
+          <p class="eyebrow mb-3 text-xs text-accent"><span dir="ltr">06</span> — <span data-i18n="certs.eyebrow">Certifications</span></p>
+          <h2 id="certs-title" class="text-3xl font-bold tracking-tight text-white sm:text-4xl" data-i18n="certs.title">Always learning</h2>
+        </header>
+        <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" dir="ltr">
+          <li class="reveal glass glass-hover rounded-2xl p-5"><div class="flex items-center justify-between font-mono text-[11px]"><span class="rounded-md bg-accent/15 px-2 py-1 text-accent">Databricks</span><span class="text-slate-500">2026</span></div><p class="mt-4 font-semibold text-white">Data Ingestion with Lakeflow Connect</p></li>
+          <li class="reveal glass glass-hover rounded-2xl p-5"><div class="flex items-center justify-between font-mono text-[11px]"><span class="rounded-md bg-accent/15 px-2 py-1 text-accent">Databricks</span><span class="text-slate-500">2026</span></div><p class="mt-4 font-semibold text-white">Databricks Fundamentals Accreditation</p></li>
+          <li class="reveal glass glass-hover rounded-2xl p-5"><div class="flex items-center justify-between font-mono text-[11px]"><span class="rounded-md bg-white/5 px-2 py-1 text-slate-300">LinkedIn Learning</span><span class="text-slate-500">2025</span></div><p class="mt-4 font-semibold text-white">End-to-End Real-World Data Engineering Project with Databricks</p></li>
+          <li class="reveal glass glass-hover rounded-2xl p-5"><div class="flex items-center justify-between font-mono text-[11px]"><span class="rounded-md bg-white/5 px-2 py-1 text-slate-300">Coursera</span><span class="text-slate-500">2022</span></div><p class="mt-4 font-semibold text-white">Advanced SQL &amp; Python Programming for Data Engineering</p></li>
+          <li class="reveal glass glass-hover rounded-2xl p-5"><div class="flex items-center justify-between font-mono text-[11px]"><span class="rounded-md bg-white/5 px-2 py-1 text-slate-300">VodafoneZiggo</span><span class="text-slate-500">2022</span></div><p class="mt-4 font-semibold text-white">Python Coding Bootcamp</p></li>
+        </ul>
+      </div>
+    </section>
 
-        // 3D Visualizer
-        const canvas = document.getElementById('three-canvas');
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-        
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="relative isolate scroll-mt-24 overflow-hidden py-24 sm:py-32" aria-labelledby="contact-title">
+      <div class="glow-orb absolute bottom-[-220px] left-1/2 -z-10 h-[460px] w-[760px] -translate-x-1/2" aria-hidden="true"></div>
+      <div class="mx-auto max-w-4xl px-5 text-center sm:px-8">
+        <p class="eyebrow reveal mb-3 text-xs text-accent"><span dir="ltr">07</span> — <span data-i18n="contact.eyebrow">Contact</span></p>
+        <h2 id="contact-title" class="reveal text-3xl font-bold tracking-tight text-white sm:text-5xl" data-i18n="contact.title">Let's make your ERP work for your team.</h2>
+        <p class="reveal mx-auto mt-5 max-w-xl text-lg text-slate-400" data-i18n="contact.lead">Implementing Odoo, extending it, or getting your team to really use it? Let's talk — on-site in the Netherlands or remote.</p>
 
-        const nodeCount = 55;
-        const geometry = new THREE.BufferGeometry();
-        const positions = new Float32Array(nodeCount * 3);
-        const velocities = [];
+        <div class="reveal mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <a href="mailto:info@nexoiq.nl" class="glass glass-hover group flex items-center gap-4 rounded-2xl p-5 text-start">
+            <span class="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-accent text-ink" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
+            </span>
+            <span class="min-w-0">
+              <span class="block font-mono text-[11px] uppercase tracking-wider text-slate-500" data-i18n="contact.biz">Projects &amp; training</span>
+              <span class="block truncate font-semibold text-white transition-colors group-hover:text-accent" dir="ltr">info@nexoiq.nl</span>
+            </span>
+          </a>
+          <a href="mailto:ahmad@nexoiq.nl" class="glass glass-hover group flex items-center gap-4 rounded-2xl p-5 text-start">
+            <span class="grid h-12 w-12 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/5 text-white" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            </span>
+            <span class="min-w-0">
+              <span class="block font-mono text-[11px] uppercase tracking-wider text-slate-500" data-i18n="contact.direct">Ahmad directly</span>
+              <span class="block truncate font-semibold text-white transition-colors group-hover:text-accent" dir="ltr">ahmad@nexoiq.nl</span>
+            </span>
+          </a>
+          <a href="https://www.linkedin.com/in/ahmad-alhashimi" target="_blank" rel="noopener noreferrer" class="glass glass-hover group flex items-center gap-4 rounded-2xl p-5 text-start sm:col-span-2 lg:col-span-1">
+            <span class="grid h-12 w-12 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/5 text-white" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1v5.46h-4v-4.84c0-1.15-.02-2.64-1.6-2.64-1.62 0-1.86 1.26-1.86 2.56v4.92h-4z"/></svg>
+            </span>
+            <span class="min-w-0">
+              <span class="block font-mono text-[11px] uppercase tracking-wider text-slate-500">LinkedIn</span>
+              <span class="block truncate font-semibold text-white transition-colors group-hover:text-accent" dir="ltr">in/ahmad-alhashimi</span>
+            </span>
+          </a>
+        </div>
+        <p class="reveal mt-8 font-mono text-xs text-slate-500" data-i18n="contact.loc">Based in the Rotterdam area · Working across the Netherlands and remote</p>
+      </div>
+    </section>
+  </main>
 
-        for (let i = 0; i < nodeCount * 3; i += 3) {
-            positions[i] = (Math.random() - 0.5) * 45;
-            positions[i + 1] = (Math.random() - 0.5) * 45;
-            positions[i + 2] = (Math.random() - 0.5) * 20;
-            velocities.push({
-                x: (Math.random() - 0.5) * 0.03,
-                y: (Math.random() - 0.5) * 0.03,
-                z: (Math.random() - 0.5) * 0.02
-            });
-        }
+  <footer class="border-t border-white/5 py-8">
+    <div class="mx-auto mb-6 max-w-6xl px-5 sm:px-8">
+      <dl class="grid gap-x-8 gap-y-2 border-b border-white/5 pb-6 font-mono text-[11.5px] text-slate-500 sm:grid-cols-2 lg:grid-cols-3">
+        <div><dt class="inline" data-i18n="legal.name">Trade name:</dt> <dd class="inline text-slate-300">NexoIQ (<span data-i18n="legal.form">sole proprietorship</span>)</dd></div>
+        <div><dt class="inline" data-i18n="legal.kvk">KvK number:</dt> <dd class="inline text-accent">42175764</dd></div>
+        <div><dt class="inline" data-i18n="legal.vat">VAT ID:</dt> <dd class="inline text-slate-300" data-i18n="legal.vat.v">stated on invoice</dd></div>
+        <div><dt class="inline">SBI:</dt> <dd class="inline text-slate-300" dir="ltr">63100 · 6202</dd></div>
+        <div><dt class="inline" data-i18n="legal.work">Working:</dt> <dd class="inline text-slate-300" data-i18n="legal.work.v">hybrid / on-site / remote</dd></div>
+        <div><dt class="inline" data-i18n="legal.reg">Registered:</dt> <dd class="inline text-slate-300" data-i18n="legal.reg.v">KvK Rotterdam, South Holland</dd></div>
+      </dl>
+    </div>
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-5 text-sm text-slate-500 sm:flex-row sm:px-8">
+      <p class="flex items-center gap-2.5"><img src="data:image/webp;base64,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" alt="NexoIQ" width="24" height="24" class="h-6 w-6 rounded-full" loading="lazy"><span dir="ltr">© <span data-year>2026</span> NexoIQ</span></p>
+      <a href="#top" class="font-mono text-xs transition-colors hover:text-accent" data-i18n="footer.top">Back to top ↑</a>
+    </div>
+  </footer>
 
-        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-        const material = new THREE.PointsMaterial({ color: 0xff7a00, size: 0.9, transparent: true, opacity: 0.85 });
-        const particles = new THREE.Points(geometry, material);
-        scene.add(particles);
+  <script>
+  (function () {
+    'use strict';
 
-        camera.position.z = 30;
+    var I18N = {
+      nl: {
+        'skip': 'Naar de inhoud',
+        'nav.services': 'Diensten',
+        'nav.approach': 'Werkwijze',
+        'nav.data': 'Data &amp; BI',
+        'nav.training': 'Training',
+        'nav.contact': 'Contact',
+        'nav.cta': 'Plan een kennismaking',
 
-        function animate() {
-            requestAnimationFrame(animate);
-            const pos = geometry.attributes.position.array;
-            for (let i = 0; i < nodeCount; i++) {
-                pos[i * 3] += velocities[i].x;
-                pos[i * 3 + 1] += velocities[i].y;
-                pos[i * 3 + 2] += velocities[i].z;
+        'hero.eyebrow': 'Odoo ERP- &amp; dataconsultancy · Rotterdam, NL',
+        'hero.title': 'Odoo dat past bij <span class="text-gradient">hoe uw bedrijf echt werkt.</span>',
+        'hero.lead': 'Ik implementeer en breid Odoo uit — CRM, verkoop, inkoop, voorraad en boekhouding — met maatwerkmodules, schone data en een team dat zijn ERP begrijpt. Met ruim 8 jaar ervaring in enterprise data engineering, Power BI en Databricks.',
+        'hero.cta1': 'Plan een kennismaking',
+        'hero.cta2': 'Bekijk de diensten',
+        'hero.s1.k': 'Ervaring',
+        'hero.s1.v': 'jaar',
+        'hero.s2.k': 'Platform',
+        'hero.s3.k': 'Talen',
 
-                if (Math.abs(pos[i * 3]) > 25) velocities[i].x *= -1;
-                if (Math.abs(pos[i * 3 + 1]) > 25) velocities[i].y *= -1;
-                if (Math.abs(pos[i * 3 + 2]) > 15) velocities[i].z *= -1;
-            }
-            geometry.attributes.position.needsUpdate = true;
-            renderer.render(scene, camera);
-        }
-        animate();
+        'viz.crm': 'Leads · pipeline · opvolging',
+        'viz.sales.t': 'Verkoop',
+        'viz.sales': 'Offertes · kortingen · goedkeuringen',
+        'viz.inv.t': 'Inkoop &amp; voorraad',
+        'viz.inv': 'Magazijnen · routes · voorraad',
+        'viz.acc.t': 'Boekhouding',
+        'viz.acc': 'Facturen · betalingen',
+        'viz.bi': 'KPI’s · dashboards · beslissingen',
 
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
+        'services.eyebrow': 'Diensten',
+        'services.title': 'Van eerste inrichting tot een team dat op Odoo draait',
+        'services.lead': 'Eerst standaard Odoo, maatwerk alleen waar het echt waarde toevoegt — en data waarop u in elk rapport kunt vertrouwen.',
+        'srv.1.t': 'Odoo-implementatie &amp; configuratie',
+        'srv.1.d': 'Verkoop, CRM, inkoop, voorraad en boekhouding ingericht rond uw echte processen — op Odoo.sh of uw eigen server, met schone stamdata vanaf dag één.',
+        'srv.2.t': 'Maatwerkmodules voor Odoo',
+        'srv.2.d': 'Als standaard niet genoeg is: goedkeuringsflows, kortingsregels, toegangsrechten, geautomatiseerde activiteiten en koppelingen — upgrade-bestendig gebouwd, in versiebeheer en getest.',
+        'srv.3.t': 'CRM &amp; verkoopproces',
+        'srv.3.d': 'Pipelines die aansluiten op hoe u verkoopt: leadkwalificatie, offertes, opvolging, kortingsgoedkeuring en een duidelijke eigenaar voor elke stap.',
+        'srv.4.t': 'Voorraad &amp; magazijnen',
+        'srv.4.d': 'Meerdere magazijnen en bedrijven, inkoop- en aanvulroutes, voorraadzicht per team en betrouwbare inkoop — zodat de voorraad in Odoo klopt met de voorraad in het schap.',
+        'srv.5.t': 'Teamtraining &amp; ERP-adoptie',
+        'srv.5.d': 'Ik leg het ERP uit in de taal van uw team: key-usertraining, testscenario’s voor managers, heldere handleidingen en ondersteuning na livegang — zodat mensen het systeem echt gebruiken.',
+        'srv.5.tags': 'Training • Testgidsen • Ondersteuning na livegang',
+        'srv.6.t': 'Data, Power BI &amp; Databricks',
+        'srv.6.d': 'Maak van ERP-data beslissingen: Power BI-modellen op Odoo en andere bronnen, solide datamodellering en Azure Databricks-pipelines als de volumes groeien.',
+
+        'approach.eyebrow': 'Werkwijze',
+        'approach.title': 'Zo verloopt een Odoo-project met mij',
+        'approach.lead': 'Geen verrassingen in productie: elke wijziging is begrepen, getest en uitgelegd voordat die live gaat.',
+        'ap.1.t': 'Begrijpen',
+        'ap.1.d': 'Sessies met uw team om processen, rollen en knelpunten in kaart te brengen — voordat er iets wordt geconfigureerd.',
+        'ap.2.t': 'Ontwerpen &amp; configureren',
+        'ap.2.d': 'Eerst standaard Odoo-functies; een duidelijke lijst van wat een maatwerkmodule nodig heeft en waarom.',
+        'ap.3.t': 'Ontwikkelen',
+        'ap.3.d': 'Maatwerkmodules met geautomatiseerde tests, beheerd in Git en uitgerold via Odoo.sh-branches.',
+        'ap.4.t': 'Testen op staging',
+        'ap.4.d': 'Elke wijziging getest op een kopie van uw data, met een stap-voor-stap testgids voor uw managers.',
+        'ap.5.t': 'Trainen',
+        'ap.5.d': 'Key users en teams getraind op hun eigen dagelijkse processen, in hun eigen taal.',
+        'ap.6.t': 'Livegang &amp; ondersteuning',
+        'ap.6.d': 'Back-up en terugvalplan vóór de release, daarna opvolging terwijl het team went aan het systeem.',
+
+        'data.eyebrow': 'Data &amp; BI',
+        'data.title': 'Enterprise data engineering achter elk ERP-project',
+        'data.lead': 'Ruim 8 jaar dataplatformen in de maakindustrie, verzekeringen en internationale programma’s — dezelfde zorgvuldigheid breng ik naar uw Odoo-data.',
+        'data.1.tag': 'Modernisering',
+        'data.1.t': 'Legacy ETL → Azure Databricks Lakehouse',
+        'data.1.d': 'Voor een internationale productiegroep: legacy SSIS-workflows overgezet naar één Lakehouse op PySpark, Delta Lake en Unity Catalog, met CI/CD in Azure DevOps.',
+        'data.2.tag': 'Rapportage',
+        'data.2.t': 'ERP- &amp; CRM-data → Power BI',
+        'data.2.d': 'Enterprise semantische modellen op ERP- en CRM-data — één definitie van elke KPI, gedeeld door regionale business units en automatisch ververst.',
+        'data.3.tag': 'Integratie',
+        'data.3.t': 'Zero-copy ERP-integratie',
+        'data.3.d': 'SAP-data gebruikt in Databricks zonder te kopiëren — minder latency, geen dubbele opslag, één bron van waarheid.',
+        'data.4.tag': 'Schaal',
+        'data.4.t': 'Gereguleerde &amp; internationale data',
+        'data.4.d': 'Dimensionele modellen voor risk- en actuariële teams in de verzekeringssector, en managementdashboards voor programma’s in meerdere landen met een bereik van 100K+ mensen.',
+
+        'tr.eyebrow': 'Training &amp; mentorship',
+        'tr.title': 'Odoo- &amp; ERP-training voor uw team',
+        'tr.lead': 'Een ERP werkt pas als mensen het begrijpen. Ik train key users en managers op de processen die ze dagelijks gebruiken — en coach datateams in Power BI, Databricks en PySpark.',
+        'tr.cta': 'Vraag een teamtraining aan',
+        'tr.p1': 'Odoo voor key users &amp; managers',
+        'tr.p2': 'De ERP-flow begrijpen: CRM → verkoop → voorraad → factuur',
+        'tr.p3': 'Testscenario’s &amp; handleidingen',
+        'tr.p4': 'Workshops Power BI, Databricks &amp; PySpark',
+
+        'stack.eyebrow': 'Technologie',
+        'stack.title': 'Tools waarmee ik werk',
+        'stack.c1': 'Odoo &amp; ERP',
+        'stack.c2': 'BI &amp; datamodellering',
+        'stack.c3': 'Data engineering &amp; cloud',
+        'stack.c4': 'DevOps &amp; governance',
+        'stack.tests': 'Geautomatiseerde tests',
+        'stack.dq': 'Datakwaliteitscontracten',
+        'stack.gdpr': 'AVG / GDPR',
+
+        'certs.eyebrow': 'Certificeringen',
+        'certs.title': 'Altijd blijven leren',
+
+        'contact.eyebrow': 'Contact',
+        'contact.title': 'Laten we uw ERP laten werken voor uw team.',
+        'contact.lead': 'Odoo implementeren, uitbreiden of uw team het echt laten gebruiken? Laten we praten — op locatie in Nederland of remote.',
+        'contact.biz': 'Projecten &amp; training',
+        'contact.direct': 'Direct naar Ahmad',
+        'contact.loc': 'Gevestigd in de regio Rotterdam · Actief in heel Nederland en remote',
+
+        'legal.name': 'Handelsnaam:',
+        'legal.form': 'eenmanszaak',
+        'legal.kvk': 'KVK-nummer:',
+        'legal.vat': 'BTW-id:',
+        'legal.vat.v': 'vermeld op factuur',
+        'legal.work': 'Werkwijze:',
+        'legal.work.v': 'hybride / op locatie / remote',
+        'legal.reg': 'Ingeschreven:',
+        'legal.reg.v': 'KVK Rotterdam, Zuid-Holland',
+        'footer.top': 'Terug naar boven ↑'
+      },
+
+      ar: {
+        'skip': 'انتقل إلى المحتوى',
+        'nav.services': 'الخدمات',
+        'nav.approach': 'طريقة العمل',
+        'nav.data': 'البيانات والتقارير',
+        'nav.training': 'التدريب',
+        'nav.contact': 'تواصل',
+        'nav.cta': 'احجز مكالمة تعارف',
+
+        'hero.eyebrow': 'استشارات Odoo ERP والبيانات · روتردام، هولندا',
+        'hero.title': 'نظام Odoo يناسب <span class="text-gradient">طريقة عمل شركتك فعلاً.</span>',
+        'hero.lead': 'أطبّق نظام Odoo وأطوّره: إدارة العملاء CRM، والمبيعات، والمشتريات، والمخازن، والمحاسبة — مع موديولات مخصصة، وبيانات نظيفة، وفريق يفهم نظامه. ويسند ذلك أكثر من 8 سنوات من الخبرة في هندسة البيانات وPower BI وDatabricks.',
+        'hero.cta1': 'احجز مكالمة تعارف',
+        'hero.cta2': 'تعرّف على الخدمات',
+        'hero.s1.k': 'الخبرة',
+        'hero.s1.v': 'سنوات',
+        'hero.s2.k': 'المنصة',
+        'hero.s3.k': 'اللغات',
+
+        'viz.crm': 'العملاء المحتملون · المراحل · المتابعة',
+        'viz.sales.t': 'المبيعات',
+        'viz.sales': 'عروض الأسعار · الخصومات · الموافقات',
+        'viz.inv.t': 'المشتريات والمخازن',
+        'viz.inv': 'المستودعات · المسارات · المخزون',
+        'viz.acc.t': 'المحاسبة',
+        'viz.acc': 'الفواتير · المدفوعات',
+        'viz.bi': 'المؤشرات · اللوحات · القرارات',
+
+        'services.eyebrow': 'الخدمات',
+        'services.title': 'من الإعداد الأول حتى فريق يعمل على Odoo بثقة',
+        'services.lead': 'نبدأ بإمكانات Odoo القياسية، ولا نبرمج إلا حيث تضيف البرمجة قيمة حقيقية — وبيانات تثق بها في كل تقرير.',
+        'srv.1.t': 'تطبيق Odoo وإعداده',
+        'srv.1.d': 'المبيعات وCRM والمشتريات والمخازن والمحاسبة، مُعدّة حول إجراءات عملك الحقيقية — على Odoo.sh أو على خادمك الخاص، مع بيانات أساسية نظيفة من اليوم الأول.',
+        'srv.2.t': 'موديولات Odoo مخصصة',
+        'srv.2.d': 'حين لا تكفي الإمكانات القياسية: مسارات موافقة، وقواعد خصم، وصلاحيات وصول، وأنشطة آلية، وربط مع أنظمة أخرى — مبنية بطريقة آمنة عند الترقية، ومحفوظة في Git، ومختبرة.',
+        'srv.3.t': 'إدارة العملاء ورحلة المبيعات',
+        'srv.3.d': 'مراحل بيع تطابق طريقة بيعك: تأهيل العملاء المحتملين، وعروض الأسعار، والمتابعات، وموافقات الخصم، ومسؤول واضح عن كل خطوة.',
+        'srv.4.t': 'المخازن والمستودعات',
+        'srv.4.d': 'مستودعات وشركات متعددة، ومسارات الشراء وإعادة التموين، وظهور المخزون لكل فريق، ومشتريات موثوقة — ليطابق المخزون في Odoo ما هو موجود على الرف.',
+        'srv.5.t': 'تمكين الفريق وتبنّي النظام',
+        'srv.5.d': 'أشرح نظام ERP بلغة فريقك: تدريب المستخدمين الرئيسيين، وسيناريوهات اختبار للمدراء، وأدلة استخدام واضحة، ودعم بعد التشغيل — ليستخدم الموظفون النظام فعلاً.',
+        'srv.5.tags': 'تدريب • أدلة اختبار • دعم بعد التشغيل',
+        'srv.6.t': 'البيانات وPower BI وDatabricks',
+        'srv.6.d': 'حوّل بيانات ERP إلى قرارات: نماذج Power BI فوق Odoo ومصادر أخرى، ونمذجة بيانات متينة، ومسارات بيانات على Azure Databricks حين يكبر حجم البيانات.',
+
+        'approach.eyebrow': 'طريقة العمل',
+        'approach.title': 'كيف يسير مشروع Odoo معي',
+        'approach.lead': 'لا مفاجآت في النظام الفعلي: كل تعديل مفهوم ومختبر ومشروح قبل أن يُطلق.',
+        'ap.1.t': 'الفهم',
+        'ap.1.d': 'جلسات مع فريقك لرسم الإجراءات والأدوار ونقاط الألم — قبل لمس أي إعداد.',
+        'ap.2.t': 'التصميم والإعداد',
+        'ap.2.d': 'إمكانات Odoo القياسية أولاً، وقائمة واضحة بما يحتاج موديولاً مخصصاً ولماذا.',
+        'ap.3.t': 'التطوير',
+        'ap.3.d': 'موديولات مخصصة مع اختبارات آلية، محفوظة في Git، وتُنشر عبر فروع Odoo.sh.',
+        'ap.4.t': 'الاختبار على نسخة تجريبية',
+        'ap.4.d': 'كل تعديل يُجرَّب على نسخة من بياناتك، مع دليل اختبار خطوة بخطوة لمدرائك.',
+        'ap.5.t': 'التدريب',
+        'ap.5.d': 'تدريب المستخدمين الرئيسيين والفرق على إجراءاتهم اليومية، وبلغتهم.',
+        'ap.6.t': 'التشغيل والدعم',
+        'ap.6.d': 'نسخة احتياطية وخطة رجوع قبل الإطلاق، ثم متابعة حتى يستقر الفريق على النظام.',
+
+        'data.eyebrow': 'البيانات والتقارير',
+        'data.title': 'هندسة بيانات بمستوى المؤسسات خلف كل مشروع ERP',
+        'data.lead': 'أكثر من 8 سنوات في منصات البيانات للصناعة والتأمين والبرامج الدولية — وبالدقة نفسها أتعامل مع بيانات Odoo لديك.',
+        'data.1.tag': 'تحديث الأنظمة',
+        'data.1.t': 'من ETL القديم إلى Azure Databricks Lakehouse',
+        'data.1.d': 'لمجموعة تصنيع دولية: نقل عمليات SSIS القديمة إلى منصة Lakehouse واحدة على PySpark وDelta Lake وUnity Catalog، مع نشر آلي CI/CD عبر Azure DevOps.',
+        'data.2.tag': 'التقارير',
+        'data.2.t': 'بيانات ERP وCRM إلى Power BI',
+        'data.2.d': 'نماذج دلالية على بيانات ERP وCRM — تعريف واحد لكل مؤشر أداء، تتشاركه وحدات الأعمال الإقليمية ويتحدّث تلقائياً.',
+        'data.3.tag': 'التكامل',
+        'data.3.t': 'تكامل ERP دون نسخ البيانات',
+        'data.3.d': 'استخدام بيانات SAP داخل Databricks دون نسخها — تأخير أقل، ولا تخزين مكرر، ومصدر واحد للحقيقة.',
+        'data.4.tag': 'الحجم',
+        'data.4.t': 'بيانات خاضعة للرقابة ومتعددة الدول',
+        'data.4.d': 'نماذج بيانات بعدية لفرق المخاطر والإحصاء التأميني في قطاع التأمين، ولوحات إدارية لبرامج في عدة دول تصل إلى أكثر من 100 ألف شخص.',
+
+        'tr.eyebrow': 'التدريب والإرشاد',
+        'tr.title': 'تدريب فريقك على Odoo وERP',
+        'tr.lead': 'نظام ERP لا ينجح إلا حين يفهمه الناس. أدرّب المستخدمين الرئيسيين والمدراء على الإجراءات التي يستخدمونها كل يوم — وأوجّه فرق البيانات في Power BI وDatabricks وPySpark.',
+        'tr.cta': 'اطلب تدريباً لفريقك',
+        'tr.p1': 'Odoo للمستخدمين الرئيسيين والمدراء',
+        'tr.p2': 'فهم دورة ERP: العملاء ← المبيعات ← المخزون ← الفاتورة',
+        'tr.p3': 'سيناريوهات الاختبار وأدلة الاستخدام',
+        'tr.p4': 'ورش عمل Power BI وDatabricks وPySpark',
+
+        'stack.eyebrow': 'التقنيات',
+        'stack.title': 'الأدوات التي أعمل بها',
+        'stack.c1': 'Odoo وERP',
+        'stack.c2': 'ذكاء الأعمال ونمذجة البيانات',
+        'stack.c3': 'هندسة البيانات والسحابة',
+        'stack.c4': 'DevOps والحوكمة',
+        'stack.tests': 'اختبارات آلية',
+        'stack.dq': 'عقود جودة البيانات',
+        'stack.gdpr': 'حماية البيانات GDPR',
+
+        'certs.eyebrow': 'الشهادات',
+        'certs.title': 'تعلّم مستمر',
+
+        'contact.eyebrow': 'تواصل',
+        'contact.title': 'لنجعل نظام ERP يعمل لصالح فريقك.',
+        'contact.lead': 'تطبيق Odoo، أو تطويره، أو جعل فريقك يستخدمه فعلاً؟ لنتحدث — حضورياً في هولندا أو عن بُعد.',
+        'contact.biz': 'المشاريع والتدريب',
+        'contact.direct': 'أحمد مباشرة',
+        'contact.loc': 'مقيم في منطقة روتردام · أعمل في كل هولندا وعن بُعد',
+
+        'legal.name': 'الاسم التجاري:',
+        'legal.form': 'مؤسسة فردية',
+        'legal.kvk': 'رقم السجل التجاري KvK:',
+        'legal.vat': 'الرقم الضريبي:',
+        'legal.vat.v': 'مذكور في الفاتورة',
+        'legal.work': 'أسلوب العمل:',
+        'legal.work.v': 'هجين / حضوري / عن بُعد',
+        'legal.reg': 'التسجيل:',
+        'legal.reg.v': 'غرفة تجارة روتردام، جنوب هولندا',
+        'footer.top': 'العودة للأعلى ↑'
+      }
+    };
+
+    var META = {
+      en: { title: document.title, desc: document.querySelector('meta[name="description"]').getAttribute('content'), og: 'en_GB' },
+      nl: { title: 'NexoIQ — Odoo ERP, CRM & voorraad · Power BI & data engineering | Rotterdam',
+            desc: 'NexoIQ helpt bedrijven Odoo te implementeren en uit te breiden: CRM, verkoop, inkoop, voorraad en magazijnen, maatwerkmodules en teamtraining — met ruim 8 jaar ervaring in data engineering, Power BI en Databricks. Rotterdam.', og: 'nl_NL' },
+      ar: { title: 'NexoIQ — استشارات Odoo ERP وإدارة العملاء والمخازن · Power BI وهندسة البيانات',
+            desc: 'تساعد NexoIQ الشركات على تطبيق نظام Odoo وتطويره: إدارة العملاء، والمبيعات، والمشتريات، والمخازن، والموديولات المخصصة، وتدريب الفرق — مع أكثر من 8 سنوات في هندسة البيانات وPower BI وDatabricks. روتردام، هولندا.', og: 'ar_AR' }
+    };
+
+    var nodes = Array.prototype.slice.call(document.querySelectorAll('[data-i18n]'));
+    var EN = {};
+    nodes.forEach(function (el) { var k = el.getAttribute('data-i18n'); if (!(k in EN)) EN[k] = el.innerHTML.trim(); });
+    I18N.en = EN;
+
+    var store = {
+      get: function () { try { return localStorage.getItem('nexoiq-lang'); } catch (e) { return null; } },
+      set: function (v) { try { localStorage.setItem('nexoiq-lang', v); } catch (e) {} }
+    };
+    var LANGS = ['en', 'nl', 'ar'];
+    var current = 'en';
+
+    function applyLang(lang, animate) {
+      if (LANGS.indexOf(lang) === -1) lang = 'en';
+      var dict = I18N[lang];
+      var swap = function () {
+        nodes.forEach(function (el) {
+          var k = el.getAttribute('data-i18n');
+          var v = dict[k] != null ? dict[k] : EN[k];
+          if (el.innerHTML.trim() !== v) el.innerHTML = v;
         });
-
-        // ROI Calculator Logic
-        const slider = document.getElementById('volumeSlider');
-        const volumeVal = document.getElementById('volumeVal');
-        const costMetric = document.getElementById('costMetric');
-        const accelMetric = document.getElementById('accelMetric');
-
-        function updateCalc() {
-            const v = parseFloat(slider.value);
-            volumeVal.textContent = v.toFixed(1) + ' TB';
-            const savings = Math.round(v * 4800 + 2200);
-            costMetric.textContent = '€ ' + savings.toLocaleString();
-            accelMetric.textContent = (2.5 + (v * 0.35)).toFixed(1) + (curLang === 'NL' ? 'x Sneller' : 'x Faster');
-        }
-        slider.addEventListener('input', updateCalc);
-
-        // Language Switcher (Default: NL -> EN)
-        let curLang = 'NL';
-        const langToggle = document.getElementById('langToggle');
-        const langText = document.getElementById('langText');
-        const i18nData = {
-            NL: {
-                navServices: 'Diensten', navAcademy: 'Training & Mentorship', navCalc: 'ROI Calculator', navCompliance: 'Bedrijfsgegevens',
-                ctaButton: 'Plan Adviesgesprek', badgeText: 'Data Engineering & Lakehouse Consultancy • Rotterdam, NL',
-                heroTitle: 'Industriële Schaal', heroSub: 'Datapijplijnen & Databricks Lakehouse',
-                heroDesc: 'Architectuur van betrouwbare Databricks Lakehouses, geautomatiseerde ETL-verwerking en enterprise LLMOps. Daarnaast verzorgen wij hands-on trainingen voor interne datateams.',
-                heroCta1: 'Plan Technische Sessie', heroCta2: 'Ontdek Data Trainingen',
-                servicesTitle: 'Gespecialiseerde Diensten',
-                servicesDesc: 'Van ruwe, versnipperde data naar een performante data-infrastructuur die uw rapportages en AI-modellen foutloos voedt.',
-                srv1Title: 'Databricks Lakehouse & Delta Lake', srv1Desc: 'Productie-implementaties op Azure Databricks en AWS. Unificatie van batch & streaming verwerking met geavanceerde Delta Live Tables.',
-                srv2Title: 'Data Opschoning & Modellering', srv2Desc: 'Geautomatiseerde data cleaning pipelines en robuuste datamodellering. Zodat dashboards zoals Power BI direct kunnen rekenen op zuivere cijfers.',
-                srv3Title: 'AI Infrastructuur & LLMOps', srv3Desc: 'Vector indexering, RAG data pipelines en Azure OpenAI integraties. Uw bedrijfsdata schaalbaar en veilig voorbereid op generatieve AI.',
-                acadBadge: 'Kennisoverdracht & Data Mentorship', acadTitle: 'Data Engineering Training voor Teams',
-                acadDesc: 'Naast consultancy helpen we bedrijven om onafhankelijk te worden. Wij verzorgen praktijkgerichte trainingen en 1-op-1 coaching in Apache Spark, Databricks, geavanceerde SQL-optimalisatie en moderne data-architectuur.',
-                acadPt1: 'Databricks & PySpark Fundamentals', acadPt2: 'Data Quality & Pipeline Orchestration',
-                acadPt3: 'Van Ruwe Data naar Analytics-Ready Tabellen', acadPt4: 'Praktijkgerichte Enterprise Use-cases',
-                acadCta: 'Bespreek een Incompany Training',
-                calcTitle: 'Pijplijn Efficiëntie & Cloud Compute Calculator',
-                calcSubtitle: 'Schat de potentiële query-versnelling en jaarlijkse compute-besparing in door Databricks Lakehouse optimalisatie.',
-                calcVolumeLabel: 'Maandelijks Data Volume', calcCloudLabel: 'Primaire Cloud Omgeving',
-                calcMetric1: 'Verwachte Query Versnelling', calcMetric2: 'Geschatte Jaarlijkse Besparing',
-                comp1Title: 'Wettelijke Registratie', comp2Title: 'Activiteiten & SBI-Code', comp3Title: 'Contact & Vestiging'
-            },
-            EN: {
-                navServices: 'Services', navAcademy: 'Training & Mentorship', navCalc: 'ROI Calculator', navCompliance: 'Corporate Info',
-                ctaButton: 'Consult Advisory', badgeText: 'Data Engineering & Lakehouse Advisory • Rotterdam, NL',
-                heroTitle: 'Industrial-Grade', heroSub: 'Data Pipelines & Databricks Lakehouse',
-                heroDesc: 'Architecting modern Databricks Lakehouses, deterministic ETL pipelines, and LLMOps infrastructure. Providing enterprise engineering & technical mentorship.',
-                heroCta1: 'Schedule Technical Briefing', heroCta2: 'Explore Training Programs',
-                servicesTitle: 'Enterprise Engineering Practice',
-                servicesDesc: 'Transforming uncurated raw datasets into ultra-reliable, analytics-ready pipelines that power reporting and AI without bottlenecks.',
-                srv1Title: 'Databricks Lakehouse & Delta Lake', srv1Desc: 'Production Delta Lake and Azure Databricks implementations. Unifying batch & streaming workloads with zero ingestion duplicate overhead.',
-                srv2Title: 'Data Cleansing & Modeling', srv2Desc: 'Automated data cleansing pipelines and robust modeling. Ensuring downstream tools like Power BI run on high-integrity tables.',
-                srv3Title: 'AI Infrastructure & LLMOps', srv3Desc: 'Vector search pipelines, metadata chunking, and Azure OpenAI integration. Preparing corporate data assets for production GenAI.',
-                acadBadge: 'Knowledge Transfer & Data Mentorship', acadTitle: 'Corporate Data Engineering Academy',
-                acadDesc: 'Empowering internal teams to operate and scale their own infrastructure. Hands-on workshops in Apache Spark, Databricks, and advanced data modeling.',
-                acadPt1: 'Databricks & PySpark Fundamentals', acadPt2: 'Data Quality & Pipeline Orchestration',
-                acadPt3: 'From Raw Data to Analytics-Ready Models', acadPt4: 'Production Enterprise Use-Cases',
-                acadCta: 'Request Incompany Training',
-                calcTitle: 'Pipeline Efficiency & Compute Estimator',
-                calcSubtitle: 'Estimate monthly cloud compute savings and latency reduction achieved through Lakehouse optimization.',
-                calcVolumeLabel: 'Monthly Ingestion Volume', calcCloudLabel: 'Primary Cloud Stack',
-                calcMetric1: 'Est. Query Acceleration', calcMetric2: 'Annual Compute Optimization',
-                comp1Title: 'Legal Registration', comp2Title: 'Activities & SBI Codes', comp3Title: 'Contact & Location'
-            }
-        };
-
-        langToggle.addEventListener('click', () => {
-            curLang = (curLang === 'NL') ? 'EN' : 'NL';
-            langText.textContent = (curLang === 'NL') ? 'EN' : 'NL';
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (i18nData[curLang][key]) el.textContent = i18nData[curLang][key];
-            });
-            updateCalc();
+        var root = document.documentElement;
+        root.lang = lang;
+        root.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        document.title = META[lang].title;
+        document.querySelector('meta[name="description"]').setAttribute('content', META[lang].desc);
+        document.querySelector('meta[property="og:locale"]').setAttribute('content', META[lang].og);
+        document.querySelectorAll('.lang-btn').forEach(function (b) {
+          b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang));
         });
-    </script>
+        root.classList.remove('i18n-fading');
+      };
+      current = lang;
+      store.set(lang);
+      if (animate && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('i18n-fading');
+        setTimeout(swap, 180);
+      } else { swap(); }
+    }
+
+    // Initial language: ?lang= → saved choice → browser language → English
+    var qp = (new URLSearchParams(location.search).get('lang') || '').toLowerCase();
+    var nav = (navigator.language || '').toLowerCase().slice(0, 2);
+    var initial = (LANGS.indexOf(qp) !== -1 && qp) || store.get() || (LANGS.indexOf(nav) !== -1 ? nav : 'en');
+    applyLang(initial, false);
+
+    document.querySelectorAll('.lang-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var l = b.getAttribute('data-lang');
+        if (l !== current) applyLang(l, true);
+      });
+    });
+
+    /* Header background on scroll */
+    var header = document.querySelector('[data-header]');
+    function onScroll() {
+      var s = window.scrollY > 12;
+      ['bg-ink/80', 'backdrop-blur-xl', 'border-b', 'border-white/5'].forEach(function (c) { header.classList.toggle(c, s); });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* Mobile menu */
+    var menuBtn = document.querySelector('[data-menu-toggle]');
+    var menu = document.getElementById('mobile-menu');
+    function setMenu(open) { menu.classList.toggle('hidden', !open); menuBtn.setAttribute('aria-expanded', String(open)); }
+    menuBtn.addEventListener('click', function () { setMenu(menu.classList.contains('hidden')); });
+    menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+
+    /* Reveal + scroll-spy */
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+      var links = document.querySelectorAll('.nav-link');
+      var spy = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) links.forEach(function (l) { l.classList.toggle('active', l.getAttribute('href') === '#' + en.target.id); });
+        });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      document.querySelectorAll('main section[id]').forEach(function (s) { spy.observe(s); });
+    } else {
+      document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+    }
+
+    var y = document.querySelector('[data-year]');
+    if (y) y.textContent = new Date().getFullYear();
+  })();
+  </script>
 </body>
 </html>
