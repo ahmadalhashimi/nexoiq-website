@@ -5,7 +5,7 @@ export const SITE = {
   name: 'NexoIQ',
   email: 'info@nexoiq.nl',
   personalEmail: 'ahmad@nexoiq.nl',
-  linkedin: 'https://www.linkedin.com/in/ahmad-alhashimi',
+  linkedin: 'https://www.linkedin.com/in/ahmad-alhashimi-4ab2a9127/',
   linkedinLabel: 'in/ahmad-alhashimi',
   kvk: '42175764',
   sbi: '63100 · 6202',
